@@ -315,8 +315,8 @@ main {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 18px;
 }
 
 .project-card {
@@ -393,9 +393,36 @@ main {
 }
 
 .site-footer {
-  text-align: center;
-  padding: 24px;
+  padding: 36px 24px 24px;
   color: var(--muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto 20px;
+  display: grid;
+  gap: 12px;
+  text-align: center;
+}
+
+.footer-content h2 {
+  font-size: 20px;
+  color: var(--text);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-links a {
+  color: var(--muted);
+}
+
+.footer-copy {
+  text-align: center;
 }
 
 .back-home {
