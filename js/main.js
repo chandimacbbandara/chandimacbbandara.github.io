@@ -98,4 +98,72 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  document.querySelectorAll(".carousel").forEach((carousel) => {
+    const track = carousel.querySelector(".carousel-track");
+    if (!track) {
+      return;
+    }
+
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    const onPointerDown = (event) => {
+      isDown = true;
+      startX = event.pageX || event.touches[0].pageX;
+      scrollLeft = track.scrollLeft;
+    };
+
+    const onPointerMove = (event) => {
+      if (!isDown) {
+        return;
+      }
+      const x = event.pageX || event.touches[0].pageX;
+      const walk = (x - startX) * 1.2;
+      track.scrollLeft = scrollLeft - walk;
+    };
+
+    const onPointerUp = () => {
+      isDown = false;
+    };
+
+    track.addEventListener("mousedown", onPointerDown);
+    track.addEventListener("touchstart", onPointerDown, { passive: true });
+    track.addEventListener("mousemove", onPointerMove);
+    track.addEventListener("touchmove", onPointerMove, { passive: true });
+    track.addEventListener("mouseup", onPointerUp);
+    track.addEventListener("mouseleave", onPointerUp);
+    track.addEventListener("touchend", onPointerUp);
+
+    const autoplayDelay = Number(carousel.dataset.autoplay) || 5000;
+    let autoplayTimer = null;
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      autoplayTimer = window.setInterval(() => {
+        const slideWidth = track.clientWidth * 0.72;
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        const nextScroll = Math.min(track.scrollLeft + slideWidth, maxScroll);
+        track.scrollTo({ left: nextScroll, behavior: "smooth" });
+        if (nextScroll >= maxScroll - 4) {
+          track.scrollTo({ left: 0, behavior: "smooth" });
+        }
+      }, autoplayDelay);
+    };
+
+    const stopAutoplay = () => {
+      if (autoplayTimer) {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+      }
+    };
+
+    carousel.addEventListener("mouseenter", stopAutoplay);
+    carousel.addEventListener("mouseleave", startAutoplay);
+    carousel.addEventListener("focusin", stopAutoplay);
+    carousel.addEventListener("focusout", startAutoplay);
+
+    startAutoplay();
+  });
 });

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Semantic Priority Analysis | Chandima Bandara</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="css/styles.css" />
+	</head>
+	<body class="theme-dark">
+		<header class="site-header">
+			<nav class="navbar">
+				<a class="logo" href="index.html">CB</a>
+				<button class="nav-toggle" aria-label="Open menu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<div class="nav-links">
+					<a href="index.html#home">Home</a>
+					<a href="index.html#about">About</a>
+					<a href="projects.html">Projects</a>
+					<a href="index.html#contact">Contact</a>
+				</div>
+				<button class="theme-toggle" aria-label="Toggle dark mode">
+					<span class="theme-icon">☀</span>
+				</button>
+			</nav>
+			<a class="back-home" href="projects.html">← Back to Projects</a>
+		</header>
+
+		<main>
+			<section class="project-page section">
+				<div class="section-heading">
+					<h1>Semantic Priority Analysis – LMS Support Triage</h1>
+					<p>AI-powered triage system for smarter support prioritization.</p>
+				</div>
+
+				<div class="project-detail">
+					<div class="project-text">
+						<p>
+							A practical machine learning workflow that classifies student
+							support reports into high, medium, and low priority so urgent issues
+							reach staff faster.
+						</p>
+						<ul>
+							<li>DistilBERT embeddings for semantic intent detection.</li>
+							<li>XGBoost model for reliable priority scoring.</li>
+							<li>Insights on priority distribution and ticket themes.</li>
+						</ul>
+						<div class="tag-group">
+							<span>Python</span>
+							<span>DistilBERT</span>
+							<span>XGBoost</span>
+							<span>NLP</span>
+							<span>Scikit-learn</span>
+						</div>
+						<div class="project-actions">
+							<a
+								class="btn ghost"
+								href="https://github.com/chandimacbbandara/Sementic_piority_Analysis"
+								target="_blank"
+								rel="noopener"
+							>
+								<img src="assets/icons/github.svg" alt="GitHub" />
+								GitHub
+							</a>
+						</div>
+					</div>
+
+					<div class="media-section">
+						<h2>Project Snapshot</h2>
+						<ul>
+							<li>Goal: auto-triage LMS support reports by urgency.</li>
+							<li>Data: 1005 student reports with metadata.</li>
+							<li>Labels: rule-based, zero-shot, synthetic augmentation.</li>
+							<li>Models: LR, SVM, Random Forest, XGBoost, Gradient Boosting, DistilBERT.</li>
+							<li>Deliverable: prediction function with saved DistilBERT artifacts.</li>
+						</ul>
+					</div>
+
+					<div class="media-section">
+						<h2>Why It Matters</h2>
+						<p>
+							Prioritization reduces delays for urgent requests and improves
+							staff response time, allocation, and student experience.
+						</p>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<p>© 2026 Chandima Bandara · Built with passion</p>
+		</footer>
+
+		<script src="js/main.js"></script>
+	</body>
+</html>

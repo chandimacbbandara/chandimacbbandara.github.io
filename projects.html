@@ -38,178 +38,35 @@
 			<section id="projects" class="projects-page section">
 				<div class="section-heading">
 					<h1>Projects</h1>
-					<p>Deep dives into my work across web, mobile, and AI.</p>
+					<p>Explore each project with a dedicated deep-dive page.</p>
 				</div>
-
-				<article id="scms-web" class="project-detail reveal">
-					<div class="project-text">
-						<h2>Student Concern Management System (SCMS) – Web</h2>
-						<p>
-							Built a web platform to streamline student concern intake,
-							categorization, and response workflows.
-						</p>
-						<ul>
-							<li>Role-based dashboards for admins, staff, and students.</li>
-							<li>Automated concern tagging with AI-assisted summaries.</li>
-							<li>Structured reporting to track resolution performance.</li>
-						</ul>
-						<div class="tag-group">
-							<span>Java</span>
-							<span>Spring Boot</span>
-							<span>Thymeleaf</span>
-							<span>SQL Server</span>
-							<span>Gemini API</span>
-						</div>
-						<a class="btn ghost" href="#" target="_blank" rel="noopener">
-							<img src="assets/icons/github.svg" alt="GitHub" />
-							GitHub
-						</a>
-					</div>
-					<div class="project-media">
-						<div class="image-frame">
-							<img
-								src="assets/images/scms-web-preview.png"
-								alt="SCMS web preview"
-							/>
-						</div>
-					</div>
-				</article>
-
-				<article id="scms-mobile" class="project-detail reverse reveal">
-					<div class="project-text">
-						<h2>Student Concern Management System (SCMS) – Mobile</h2>
-						<p>
-							Developed a mobile experience for students to submit and track
-							concerns on the go.
-						</p>
-						<ul>
-							<li>Secure authentication with JWT-based sessions.</li>
-							<li>Push-ready notifications for status updates.</li>
-							<li>Optimized forms for quick issue submission.</li>
-						</ul>
-						<div class="tag-group">
-							<span>React Native</span>
-							<span>Expo</span>
-							<span>Node.js</span>
-							<span>MongoDB</span>
-							<span>JWT</span>
-						</div>
-						<a class="btn ghost" href="#" target="_blank" rel="noopener">
-							<img src="assets/icons/github.svg" alt="GitHub" />
-							GitHub
-						</a>
-					</div>
-					<div class="project-media">
-						<div class="image-frame">
-							<img
-								src="assets/images/scms-mobile-preview.png"
-								alt="SCMS mobile preview"
-							/>
-						</div>
-					</div>
-				</article>
-
-				<article id="nlp-triage" class="project-detail reveal">
-					<div class="project-text">
-						<h2>Semantic Priority Analysis – LMS Support Triage</h2>
-						<p>
-							Built an NLP-based classifier to prioritize LMS support requests
-							based on semantic urgency.
-						</p>
-						<ul>
-							<li>DistilBERT embeddings for semantic context.</li>
-							<li>XGBoost model for high-precision priority scoring.</li>
-							<li>Insights dashboard to visualize triage outcomes.</li>
-						</ul>
-						<div class="tag-group">
-							<span>Python</span>
-							<span>DistilBERT</span>
-							<span>XGBoost</span>
-							<span>NLP</span>
-							<span>Scikit-learn</span>
-						</div>
-						<a class="btn ghost" href="#" target="_blank" rel="noopener">
-							<img src="assets/icons/github.svg" alt="GitHub" />
-							GitHub
-						</a>
-					</div>
-					<div class="project-media">
-						<div class="image-frame">
-							<img
-								src="assets/images/nlp-triage-preview.png"
-								alt="Semantic priority analysis preview"
-							/>
-						</div>
-					</div>
-				</article>
-
-				<article id="mental-health" class="project-detail reverse reveal">
-					<div class="project-text">
-						<h2>Student Mental Health Early Detection System</h2>
-						<p>
-							Created an ML-driven model to identify early warning signs for
-							mental health risks.
-						</p>
-						<ul>
-							<li>Multilayer perceptron with TensorFlow + Keras.</li>
-							<li>Feature engineering pipeline for questionnaire data.</li>
-							<li>Evaluation metrics tuned for recall sensitivity.</li>
-						</ul>
-						<div class="tag-group">
-							<span>Python</span>
-							<span>TensorFlow</span>
-							<span>MLP</span>
-							<span>Keras</span>
-							<span>Scikit-learn</span>
-						</div>
-						<a class="btn ghost" href="#" target="_blank" rel="noopener">
-							<img src="assets/icons/github.svg" alt="GitHub" />
-							GitHub
-						</a>
-					</div>
-					<div class="project-media">
-						<div class="image-frame">
-							<img
-								src="assets/images/mental-health-preview.png"
-								alt="Mental health detection preview"
-							/>
-						</div>
-					</div>
-				</article>
-
-				<article id="velorent" class="project-detail reveal">
-					<div class="project-text">
-						<h2>VeloRent – Car Rental System</h2>
-						<p>
-							Delivered a secure car rental platform with role-based access and
-							multi-factor authentication.
-						</p>
-						<ul>
-							<li>2FA login with secure session lifecycle.</li>
-							<li>RBAC with granular admin permissions.</li>
-							<li>Automated rental status tracking and reporting.</li>
-						</ul>
-						<div class="tag-group">
-							<span>Java</span>
-							<span>Spring Boot</span>
-							<span>SQL Server</span>
-							<span>2FA</span>
-							<span>RBAC</span>
-						</div>
-						<a class="btn ghost" href="#" target="_blank" rel="noopener">
-							<img src="assets/icons/github.svg" alt="GitHub" />
-							GitHub
-						</a>
-					</div>
-					<div class="project-media">
-						<div class="image-frame">
-							<img
-								src="assets/images/velorent-preview.png"
-								alt="VeloRent preview"
-							/>
-						</div>
-					</div>
-				</article>
+				<div class="projects-grid">
+					<a class="project-card project-card-link" href="scms-web.html">
+						<h3>Student Concern Management System (SCMS) – Web</h3>
+						<p>Web platform for streamlined student concern tracking.</p>
+						<span class="link">View Project →</span>
+					</a>
+					<a class="project-card project-card-link" href="scms-mobile.html">
+						<h3>Student Concern Management System (SCMS) – Mobile</h3>
+						<p>Mobile app for student concerns with secure authentication.</p>
+						<span class="link">View Project →</span>
+					</a>
+					<a class="project-card project-card-link" href="semantic-priority.html">
+						<h3>Semantic Priority Analysis – LMS Support Triage</h3>
+						<p>NLP-driven triage system for support ticket prioritization.</p>
+						<span class="link">View Project →</span>
+					</a>
+					<a class="project-card project-card-link" href="mental-health.html">
+						<h3>Student Mental Health Early Detection System</h3>
+						<p>Predictive system for early mental health risk detection.</p>
+						<span class="link">View Project →</span>
+					</a>
+					<a class="project-card project-card-link" href="velorent.html">
+						<h3>VeloRent – Car Rental System</h3>
+						<p>Secure car rental management system with role-based access.</p>
+						<span class="link">View Project →</span>
+					</a>
+				</div>
 			</section>
 		</main>
 
