@@ -170,4 +170,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
     startAutoplay();
   });
+
+  const lightbox = document.querySelector("#lightbox");
+  const lightboxImage = document.querySelector(".lightbox-image");
+  const lightboxClose = document.querySelector(".lightbox-close");
+  const lightboxTriggers = document.querySelectorAll("img[data-lightbox]");
+
+  if (lightbox && lightboxImage && lightboxTriggers.length > 0) {
+    const openLightbox = (image) => {
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt || "Preview";
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      body.classList.add("lightbox-open");
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.src = "";
+      lightboxImage.alt = "";
+      body.classList.remove("lightbox-open");
+    };
+
+    lightboxTriggers.forEach((image) => {
+      image.addEventListener("click", () => openLightbox(image));
+    });
+
+    if (lightboxClose) {
+      lightboxClose.addEventListener("click", closeLightbox);
+    }
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("open")) {
+        closeLightbox();
+      }
+    });
+  }
 });

@@ -72,25 +72,62 @@
 							</a>
 						</div>
 					</div>
+				</div>
 
-					<div class="media-section">
-						<h2>Project Snapshot</h2>
-						<ul>
-							<li>Goal: auto-triage LMS support reports by urgency.</li>
-							<li>Data: 1005 student reports with metadata.</li>
-							<li>Labels: rule-based, zero-shot, synthetic augmentation.</li>
-							<li>Models: LR, SVM, Random Forest, XGBoost, Gradient Boosting, DistilBERT.</li>
-							<li>Deliverable: prediction function with saved DistilBERT artifacts.</li>
-						</ul>
-					</div>
+				<div class="media-section">
+					<h2>Project Snapshot</h2>
+					<ul>
+						<li>Goal: auto-triage LMS support reports by urgency.</li>
+						<li>Data: 1005 student reports with metadata.</li>
+						<li>Labels: rule-based, zero-shot, synthetic augmentation.</li>
+						<li>Models: LR, SVM, Random Forest, XGBoost, Gradient Boosting, DistilBERT.</li>
+						<li>Deliverable: prediction function with saved DistilBERT artifacts.</li>
+					</ul>
+				</div>
 
-					<div class="media-section">
-						<h2>Why It Matters</h2>
-						<p>
-							Prioritization reduces delays for urgent requests and improves
-							staff response time, allocation, and student experience.
-						</p>
+				<div class="media-section">
+					<h2>Priority Results</h2>
+					<p>
+						Training output snapshots showing how the model classifies high,
+						medium, and low priority reports.
+					</p>
+					<div class="media-grid">
+						<div class="media-item">
+							<img
+								class="media-thumb"
+								src="assets/images/semantic-priority/High.jpeg"
+								alt="High priority result"
+								data-lightbox="priority"
+							/>
+							<span class="media-label">High priority</span>
+						</div>
+						<div class="media-item">
+							<img
+								class="media-thumb"
+								src="assets/images/semantic-priority/medium.jpeg"
+								alt="Medium priority result"
+								data-lightbox="priority"
+							/>
+							<span class="media-label">Medium priority</span>
+						</div>
+						<div class="media-item">
+							<img
+								class="media-thumb"
+								src="assets/images/semantic-priority/Low.jpeg"
+								alt="Low priority result"
+								data-lightbox="priority"
+							/>
+							<span class="media-label">Low priority</span>
+						</div>
 					</div>
+				</div>
+
+				<div class="media-section">
+					<h2>Why It Matters</h2>
+					<p>
+						Prioritization reduces delays for urgent requests and improves
+						staff response time, allocation, and student experience.
+					</p>
 				</div>
 			</section>
 		</main>
@@ -107,6 +144,11 @@
 			</div>
 			<p class="footer-copy">© 2026 Chandima Bandara · Built with passion</p>
 		</footer>
+
+		<div class="lightbox" id="lightbox" aria-hidden="true">
+			<button class="lightbox-close" type="button" aria-label="Close image">×</button>
+			<img class="lightbox-image" src="" alt="" />
+		</div>
 
 		<script src="js/main.js"></script>
 	</body>
