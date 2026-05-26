@@ -86,6 +86,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".reveal").forEach((element) => {
     observer.observe(element);
+    // Trigger immediately if element is already in viewport on page load
+    if (element.getBoundingClientRect().top < window.innerHeight) {
+      element.classList.add("is-visible");
+    }
   });
 
   document.querySelectorAll("a[href^='#']").forEach((anchor) => {
