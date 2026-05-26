@@ -3,39 +3,38 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Student Mental Health Early Detection System – TensorFlow MLP model for proactive identification of at-risk students using academic and stress data." />
 		<title>Mental Health Detection | Chandima Bandara</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-			rel="stylesheet"
-		/>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+		<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
 		<link rel="stylesheet" href="css/styles.css" />
 	</head>
 	<body class="theme-dark">
-		<header class="site-header">
+		<div class="scroll-progress" id="scrollProgress"></div>
+
+		<header class="site-header" id="siteHeader">
 			<nav class="navbar">
-				<a class="logo" href="index.html">CB</a>
+				<a class="logo" href="index.html">CB<span class="logo-dot">.</span></a>
 				<button class="nav-toggle" aria-label="Open menu">
-					<span></span>
-					<span></span>
-					<span></span>
+					<span></span><span></span><span></span>
 				</button>
 				<div class="nav-links">
 					<a href="index.html#home">Home</a>
 					<a href="index.html#about">About</a>
-					<a href="projects.html#projects">Projects</a>
-					<a href="#contact">Contact</a>
+					<a href="index.html#projects">Projects</a>
+					<a href="index.html#contact">Contact</a>
 				</div>
 				<button class="theme-toggle" aria-label="Toggle dark mode">
 					<span class="theme-icon">☀</span>
 				</button>
 			</nav>
-			<a class="back-home" href="projects.html">← Back to Projects</a>
+			<a class="back-home" href="index.html#projects">← Back to Projects</a>
 		</header>
 
 		<main>
-			<section class="project-page section">
+			<section class="project-page section reveal">
 				<div class="section-heading">
 					<h1>Student Mental Health Early Detection System</h1>
 					<p>Machine learning model for proactive student wellbeing support.</p>
@@ -54,7 +53,7 @@
 							<li>Feature engineering from survey and behavioral data.</li>
 							<li>Clear evaluation metrics for model transparency.</li>
 						</ul>
-						<div class="tag-group">
+						<div class="tag-group stagger-children">
 							<span>Python</span>
 							<span>TensorFlow</span>
 							<span>MLP</span>
@@ -73,40 +72,114 @@
 							</a>
 						</div>
 					</div>
+				</div>
 
-					<div class="media-section">
-						<h2>Focus</h2>
-						<p>
-							Early signs of mental health challenges are often subtle. This
-							project aims to flag at-risk students sooner so support can be
-							provided before issues escalate.
-						</p>
-					</div>
+				<div class="media-section">
+					<h2>Focus</h2>
+					<p>
+						Early signs of mental health challenges are often subtle. This
+						project aims to flag at-risk students sooner so support can be
+						provided before issues escalate.
+					</p>
+				</div>
 
-					<div class="media-section">
-						<h2>Impact</h2>
-						<p>
-							By analyzing attendance, grades, and stress factors, the system
-							improves early intervention, reduces dropouts, and supports
-							academic performance.
-						</p>
+				<div class="media-section">
+					<h2>Impact</h2>
+					<p>
+						By analyzing attendance, grades, and stress factors, the system
+						improves early intervention, reduces dropouts, and supports
+						academic performance.
+					</p>
+				</div>
+
+				<div class="media-section">
+					<h2>Model Summary</h2>
+					<p>
+						Dataset: Student Stress Factors (Kaggle). The best-performing model
+						was an MLP tuned with Keras callbacks, reaching 0.9091 test accuracy.
+					</p>
+					<ul>
+						<li>Tabular dataset with academic and stress indicators.</li>
+						<li>MLP achieved strong balance across all stress classes.</li>
+						<li>Visualizations highlight learning stability and class separation.</li>
+					</ul>
+				</div>
+
+				<div class="media-section">
+					<h2>Training Visualizations</h2>
+					<div class="media-grid stagger-children">
+						<div class="media-item">
+							<img
+								class="media-thumb"
+								src="assets/images/stress%20prediction%20AI/Accuracy%20graph.png"
+								alt="MLP accuracy graph"
+								data-lightbox="viz"
+							/>
+							<span class="media-label">Accuracy over epochs</span>
+						</div>
+						<div class="media-item">
+							<img
+								class="media-thumb"
+								src="assets/images/stress%20prediction%20AI/Loss%20graph.png"
+								alt="MLP loss graph"
+								data-lightbox="viz"
+							/>
+							<span class="media-label">Loss curve stability</span>
+						</div>
+						<div class="media-item">
+							<img
+								class="media-thumb"
+								src="assets/images/stress%20prediction%20AI/Confusion%20Matrix.png"
+								alt="Confusion matrix"
+								data-lightbox="viz"
+							/>
+							<span class="media-label">Confusion matrix</span>
+						</div>
 					</div>
 				</div>
 			</section>
 		</main>
 
 		<footer class="site-footer" id="contact">
-			<div class="footer-content">
-				<h2>Contact & Links</h2>
-				<p>Let's connect and build something impactful.</p>
-				<div class="footer-links">
+			<div class="footer-grid">
+				<div class="footer-brand">
+					<a class="logo" href="index.html">CB<span class="logo-dot">.</span></a>
+					<p>Building impactful solutions with code, data science, and creativity.</p>
+				</div>
+				<div class="footer-col">
+					<h3>Contact</h3>
 					<a href="mailto:chandimacbbandara@gmail.com">chandimacbbandara@gmail.com</a>
-					<a href="tel:0728288317">0728288317</a>
-					<a href="tel:0777284169">0777284169</a>
+					<a href="tel:0728288317">072 828 8317</a>
+					<a href="tel:0777284169">077 728 4169</a>
+				</div>
+				<div class="footer-col">
+					<h3>Social</h3>
+					<div class="social-row">
+						<a href="https://github.com/chandimacbbandara" target="_blank" rel="noopener" aria-label="GitHub">
+							<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+						</a>
+						<a href="https://www.linkedin.com/in/chandima-bandara-b79aba301" target="_blank" rel="noopener" aria-label="LinkedIn">
+							<svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43a2.06 2.06 0 1 1 0-4.11 2.06 2.06 0 0 1 0 4.11zm15.11 13.02h-3.56v-5.6c0-1.34-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.7H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z"/></svg>
+						</a>
+						<a href="mailto:chandimacbbandara@gmail.com" aria-label="Email">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+						</a>
+					</div>
 				</div>
 			</div>
-			<p class="footer-copy">© 2026 Chandima Bandara · Built with passion</p>
+			<div class="footer-bottom">
+				<p class="footer-copy">© 2026 Chandima Bandara · Crafted with passion</p>
+			</div>
 		</footer>
+
+		<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+		</button>
+
+		<div class="lightbox" id="lightbox" aria-hidden="true">
+			<button class="lightbox-close" type="button" aria-label="Close image">×</button>
+			<img class="lightbox-image" src="" alt="" />
+		</div>
 
 		<script src="js/main.js"></script>
 	</body>

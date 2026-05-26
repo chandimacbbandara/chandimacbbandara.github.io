@@ -1,0 +1,23 @@
+Dataset
+Dataset: Student Stress Factors — A Comprehensive Analysis
+Source: Kaggle — https://www.kaggle.com/datasets/rxnach/student-stress-factors-a-comprehensive-analysis?resource=download
+Type: Tabular (structured)
+Local path: Data/Raw/StressLevelDataset.csv
+Best Model: MLP (Multilayer Perceptron)
+The MLP model achieved the best performance during evaluation (variety 2 with Keras callbacks).
+
+Test Accuracy: 0.9091
+
+Classification Report:
+
+           precision    recall  f1-score   support
+
+       0       0.88      0.89      0.89        74
+       1       0.96      0.94      0.95        72
+       2       0.89      0.89      0.89        74
+
+accuracy                           0.91       220
+macro avg 0.91 0.91 0.91 220 weighted avg 0.91 0.91 0.91 220
+
+Model Training Visualizations
+The following plots are generated during training and saved under results/model_Eda_visualizations/:
