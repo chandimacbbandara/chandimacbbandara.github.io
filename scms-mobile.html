@@ -12,6 +12,11 @@
 		<link rel="stylesheet" href="css/styles.css" />
 	</head>
 	<body class="theme-dark">
+		<!-- Page Loader -->
+		<div class="page-loader">
+			<div class="loader-spinner"></div>
+		</div>
+
 		<div class="scroll-progress" id="scrollProgress"></div>
 
 		<header class="site-header" id="siteHeader">
@@ -34,14 +39,14 @@
 		</header>
 
 		<main>
-			<section class="project-page section reveal">
+			<section class="project-page section reveal-scale">
 				<div class="section-heading">
 					<h1>Student Concern Management System (SCMS) – Mobile</h1>
 					<p>Mobile app for tracking student concerns with fast, secure access.</p>
 				</div>
 
 				<div class="project-detail">
-					<div class="project-text">
+					<div class="project-text reveal-left">
 						<p>
 							Designed a mobile-first experience so students can submit, update,
 							and monitor concerns without being tied to a desktop interface.
@@ -70,9 +75,18 @@
 							</a>
 						</div>
 					</div>
+					<div class="project-media reveal-right">
+						<div class="image-frame">
+							<img
+								src="assets/images/SCMS-mobile/1778121987356.jpeg"
+								alt="SCMS mobile cover"
+								data-lightbox="scms-mobile"
+							/>
+						</div>
+					</div>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal">
 					<h2>Overview</h2>
 					<p>
 						Multi-role mobile ecosystem built with the MERN stack to streamline
@@ -80,7 +94,7 @@
 					</p>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal">
 					<h2>Highlights</h2>
 					<ul>
 						<li>Secure authentication, concern submission, and real-time tracking.</li>
@@ -90,7 +104,7 @@
 					</ul>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal">
 					<h2>Tech Stack</h2>
 					<ul>
 						<li>React Native, Expo, React Navigation, Axios, Ionicons.</li>
@@ -100,7 +114,7 @@
 					</ul>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal-scale">
 					<h2>Mobile Gallery</h2>
 					<p>Swipe through key screens from the SCMS mobile experience.</p>
 					<div class="carousel phone-carousel">
@@ -161,7 +175,7 @@
 			</section>
 		</main>
 
-		<footer class="site-footer" id="contact">
+		<footer class="site-footer">
 			<div class="footer-grid">
 				<div class="footer-brand">
 					<a class="logo" href="index.html">CB<span class="logo-dot">.</span></a>
@@ -201,6 +215,9 @@
 			<button class="lightbox-close" type="button" aria-label="Close image">×</button>
 			<img class="lightbox-image" src="" alt="" />
 		</div>
+
+		<!-- Cursor Glow Dynamic Element -->
+		<div class="cursor-glow"></div>
 
 		<script src="js/main.js"></script>
 	</body>

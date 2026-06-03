@@ -12,6 +12,11 @@
 		<link rel="stylesheet" href="css/styles.css" />
 	</head>
 	<body class="theme-dark">
+		<!-- Page Loader -->
+		<div class="page-loader">
+			<div class="loader-spinner"></div>
+		</div>
+
 		<div class="scroll-progress" id="scrollProgress"></div>
 
 		<header class="site-header" id="siteHeader">
@@ -34,14 +39,14 @@
 		</header>
 
 		<main>
-			<section class="project-page section reveal">
+			<section class="project-page section reveal-scale">
 				<div class="section-heading">
 					<h1>VeloRent – Car Rental System</h1>
 					<p>Secure rental management platform with 2FA and RBAC controls.</p>
 				</div>
 
 				<div class="project-detail">
-					<div class="project-text">
+					<div class="project-text reveal-left">
 						<p>
 							Built a full-stack rental system with secure authentication, role
 							management, and automated rental workflows.
@@ -70,7 +75,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="project-media">
+					<div class="project-media reveal-right">
 						<div class="image-frame">
 							<img
 								src="assets/images/VeloRent/Screenshot%202025-10-24%20110126.png"
@@ -81,7 +86,7 @@
 					</div>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal">
 					<h2>Overview</h2>
 					<p>
 						Web-based car rental platform built for the SE2030 Software Engineering
@@ -89,7 +94,7 @@
 					</p>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal">
 					<h2>Highlights</h2>
 					<ul>
 						<li>Vehicle discovery with live availability and quick booking.</li>
@@ -99,7 +104,7 @@
 					</ul>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal">
 					<h2>Processes</h2>
 					<ul>
 						<li>Search vehicles, review details, and create a booking.</li>
@@ -109,7 +114,7 @@
 					</ul>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal">
 					<h2>Roles</h2>
 					<ul>
 						<li>Owner: portfolio performance, vehicles, payouts, and escalations.</li>
@@ -118,7 +123,7 @@
 					</ul>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal">
 					<h2>Tech Stack</h2>
 					<ul>
 						<li>Java 17, Spring Boot 3.5.5, Maven.</li>
@@ -128,7 +133,7 @@
 					</ul>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal-scale">
 					<h2>Images</h2>
 					<div class="carousel" data-autoplay="5000">
 						<div class="carousel-track">
@@ -168,7 +173,7 @@
 			</section>
 		</main>
 
-		<footer class="site-footer" id="contact">
+		<footer class="site-footer">
 			<div class="footer-grid">
 				<div class="footer-brand">
 					<a class="logo" href="index.html">CB<span class="logo-dot">.</span></a>
@@ -208,6 +213,9 @@
 			<button class="lightbox-close" type="button" aria-label="Close image">×</button>
 			<img class="lightbox-image" src="" alt="" />
 		</div>
+
+		<!-- Cursor Glow Dynamic Element -->
+		<div class="cursor-glow"></div>
 
 		<script src="js/main.js"></script>
 	</body>
