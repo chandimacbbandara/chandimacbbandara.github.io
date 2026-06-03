@@ -12,6 +12,11 @@
 		<link rel="stylesheet" href="css/styles.css" />
 	</head>
 	<body class="theme-dark">
+		<!-- Page Loader -->
+		<div class="page-loader">
+			<div class="loader-spinner"></div>
+		</div>
+
 		<div class="scroll-progress" id="scrollProgress"></div>
 
 		<header class="site-header" id="siteHeader">
@@ -34,14 +39,14 @@
 		</header>
 
 		<main>
-			<section class="project-page section reveal">
+			<section class="project-page section reveal-scale">
 				<div class="section-heading">
 					<h1>Student Mental Health Early Detection System</h1>
 					<p>Machine learning model for proactive student wellbeing support.</p>
 				</div>
 
 				<div class="project-detail">
-					<div class="project-text">
+					<div class="project-text reveal-left">
 						<p>
 							This project builds an end-to-end pipeline to detect early signs of
 							mental health risk in students using academic and stress-related
@@ -72,9 +77,18 @@
 							</a>
 						</div>
 					</div>
+					<div class="project-media reveal-right">
+						<div class="image-frame">
+							<img
+								src="assets/images/stress prediction AI/Accuracy graph.png"
+								alt="Mental Health Detection Cover"
+								data-lightbox="mental-health-cover"
+							/>
+						</div>
+					</div>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal">
 					<h2>Focus</h2>
 					<p>
 						Early signs of mental health challenges are often subtle. This
@@ -83,7 +97,7 @@
 					</p>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal">
 					<h2>Impact</h2>
 					<p>
 						By analyzing attendance, grades, and stress factors, the system
@@ -92,7 +106,7 @@
 					</p>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal">
 					<h2>Model Summary</h2>
 					<p>
 						Dataset: Student Stress Factors (Kaggle). The best-performing model
@@ -105,13 +119,13 @@
 					</ul>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal-scale">
 					<h2>Training Visualizations</h2>
 					<div class="media-grid stagger-children">
 						<div class="media-item">
 							<img
 								class="media-thumb"
-								src="assets/images/stress%20prediction%20AI/Accuracy%20graph.png"
+								src="assets/images/stress prediction AI/Accuracy graph.png"
 								alt="MLP accuracy graph"
 								data-lightbox="viz"
 							/>
@@ -120,7 +134,7 @@
 						<div class="media-item">
 							<img
 								class="media-thumb"
-								src="assets/images/stress%20prediction%20AI/Loss%20graph.png"
+								src="assets/images/stress prediction AI/Loss graph.png"
 								alt="MLP loss graph"
 								data-lightbox="viz"
 							/>
@@ -129,7 +143,7 @@
 						<div class="media-item">
 							<img
 								class="media-thumb"
-								src="assets/images/stress%20prediction%20AI/Confusion%20Matrix.png"
+								src="assets/images/stress prediction AI/Confusion Matrix.png"
 								alt="Confusion matrix"
 								data-lightbox="viz"
 							/>
@@ -140,7 +154,7 @@
 			</section>
 		</main>
 
-		<footer class="site-footer" id="contact">
+		<footer class="site-footer">
 			<div class="footer-grid">
 				<div class="footer-brand">
 					<a class="logo" href="index.html">CB<span class="logo-dot">.</span></a>
@@ -180,6 +194,9 @@
 			<button class="lightbox-close" type="button" aria-label="Close image">×</button>
 			<img class="lightbox-image" src="" alt="" />
 		</div>
+
+		<!-- Cursor Glow Dynamic Element -->
+		<div class="cursor-glow"></div>
 
 		<script src="js/main.js"></script>
 	</body>

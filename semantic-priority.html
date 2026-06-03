@@ -12,6 +12,11 @@
 		<link rel="stylesheet" href="css/styles.css" />
 	</head>
 	<body class="theme-dark">
+		<!-- Page Loader -->
+		<div class="page-loader">
+			<div class="loader-spinner"></div>
+		</div>
+
 		<div class="scroll-progress" id="scrollProgress"></div>
 
 		<header class="site-header" id="siteHeader">
@@ -34,14 +39,14 @@
 		</header>
 
 		<main>
-			<section class="project-page section reveal">
+			<section class="project-page section reveal-scale">
 				<div class="section-heading">
 					<h1>Semantic Priority Analysis – LMS Support Triage</h1>
 					<p>AI-powered triage system for smarter support prioritization.</p>
 				</div>
 
 				<div class="project-detail">
-					<div class="project-text">
+					<div class="project-text reveal-left">
 						<p>
 							A practical machine learning workflow that classifies student
 							support reports into high, medium, and low priority so urgent issues
@@ -71,9 +76,18 @@
 							</a>
 						</div>
 					</div>
+					<div class="project-media reveal-right">
+						<div class="image-frame">
+							<img
+								src="assets/images/semantic-priority/medium.jpeg"
+								alt="Semantic Priority Cover"
+								data-lightbox="priority-cover"
+							/>
+						</div>
+					</div>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal">
 					<h2>Project Snapshot</h2>
 					<ul>
 						<li>Goal: auto-triage LMS support reports by urgency.</li>
@@ -84,7 +98,7 @@
 					</ul>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal-scale">
 					<h2>Priority Results</h2>
 					<p>
 						Training output snapshots showing how the model classifies high,
@@ -121,7 +135,7 @@
 					</div>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal">
 					<h2>Why It Matters</h2>
 					<p>
 						Prioritization reduces delays for urgent requests and improves
@@ -131,7 +145,7 @@
 			</section>
 		</main>
 
-		<footer class="site-footer" id="contact">
+		<footer class="site-footer">
 			<div class="footer-grid">
 				<div class="footer-brand">
 					<a class="logo" href="index.html">CB<span class="logo-dot">.</span></a>
@@ -171,6 +185,9 @@
 			<button class="lightbox-close" type="button" aria-label="Close image">×</button>
 			<img class="lightbox-image" src="" alt="" />
 		</div>
+
+		<!-- Cursor Glow Dynamic Element -->
+		<div class="cursor-glow"></div>
 
 		<script src="js/main.js"></script>
 	</body>

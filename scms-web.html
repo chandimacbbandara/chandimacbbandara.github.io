@@ -12,6 +12,11 @@
 		<link rel="stylesheet" href="css/styles.css" />
 	</head>
 	<body class="theme-dark">
+		<!-- Page Loader -->
+		<div class="page-loader">
+			<div class="loader-spinner"></div>
+		</div>
+
 		<div class="scroll-progress" id="scrollProgress"></div>
 
 		<header class="site-header" id="siteHeader">
@@ -34,14 +39,14 @@
 		</header>
 
 		<main>
-			<section class="project-page section reveal">
+			<section class="project-page section reveal-scale">
 				<div class="section-heading">
 					<h1>Student Concern Management System (SCMS) – Web</h1>
 					<p>Centralized web system for student concerns with AI-assisted insights.</p>
 				</div>
 
 				<div class="project-detail">
-					<div class="project-text">
+					<div class="project-text reveal-left">
 						<p>
 							Designed and built the web portal to collect, triage, and track
 							student concerns across departments, enabling faster responses and
@@ -71,7 +76,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="project-media">
+					<div class="project-media reveal-right">
 						<div class="image-frame">
 							<img
 								src="assets/images/SCMS/Screenshot%20from%202026-04-30%2023-38-25.png"
@@ -82,7 +87,7 @@
 					</div>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal">
 					<h2>Overview</h2>
 					<p>
 						SCMS is a full-stack web system for managing student concerns from
@@ -91,7 +96,7 @@
 					</p>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal">
 					<h2>Highlights</h2>
 					<ul>
 						<li>Role-based login with complete concern lifecycle management.</li>
@@ -100,10 +105,11 @@
 						<li>AI moderation and priority prediction in submit/update flows.</li>
 						<li>Dashboards for admins and owners with analytics and reports.</li>
 						<li>Notification center and feedback modules for closure quality.</li>
+						<li>Notification center and feedback modules for closure quality.</li>
 					</ul>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal">
 					<h2>Roles</h2>
 					<ul>
 						<li>Students: submit concerns, chat, schedule meetings, and give feedback.</li>
@@ -112,7 +118,7 @@
 					</ul>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal">
 					<h2>Tech Stack</h2>
 					<ul>
 						<li>Java 21, Spring Boot 4.0.2, Spring MVC + Thymeleaf.</li>
@@ -123,7 +129,7 @@
 					</ul>
 				</div>
 
-				<div class="media-section">
+				<div class="media-section reveal-scale">
 					<h2>Images</h2>
 					<div class="carousel" data-autoplay="5000">
 						<div class="carousel-track">
@@ -163,7 +169,7 @@
 			</section>
 		</main>
 
-		<footer class="site-footer" id="contact">
+		<footer class="site-footer">
 			<div class="footer-grid">
 				<div class="footer-brand">
 					<a class="logo" href="index.html">CB<span class="logo-dot">.</span></a>
@@ -203,6 +209,9 @@
 			<button class="lightbox-close" type="button" aria-label="Close image">×</button>
 			<img class="lightbox-image" src="" alt="" />
 		</div>
+
+		<!-- Cursor Glow Dynamic Element -->
+		<div class="cursor-glow"></div>
 
 		<script src="js/main.js"></script>
 	</body>
