@@ -138,22 +138,30 @@ document.addEventListener("DOMContentLoaded", () => {
       if (phrases.length === 0) return;
 
       const current = phrases[phraseIndex];
-      typewriter.textContent = current.slice(0, charIndex);
 
-      if (!isDeleting && charIndex < current.length) {
-        charIndex++;
-      } else if (isDeleting && charIndex > 0) {
+      if (isDeleting) {
+        typewriter.textContent = current.slice(0, charIndex);
         charIndex--;
-      } else {
-        isDeleting = !isDeleting;
-        if (!isDeleting) {
+
+        if (charIndex < 0) {
+          isDeleting = false;
           phraseIndex = (phraseIndex + 1) % phrases.length;
+          charIndex = 0;
+          setTimeout(type, 300);
+        } else {
+          setTimeout(type, 45);
+        }
+      } else {
+        typewriter.textContent = current.slice(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === current.length) {
+          isDeleting = true;
+          setTimeout(type, 1600);
+        } else {
+          setTimeout(type, 75);
         }
       }
-
-      const delay = isDeleting ? 45 : 75;
-      const pause = !isDeleting && charIndex === current.length ? 1600 : 0;
-      setTimeout(type, pause || delay);
     };
 
     type();
@@ -556,4 +564,43 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }, { passive: true });
   });
+
+  /* ==================== PROJECT FILTERING ==================== */
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const projectCards = document.querySelectorAll(".projects-grid .project-card");
+
+  if (filterBtns.length > 0 && projectCards.length > 0) {
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter");
+
+        // Toggle active class on buttons
+        filterBtns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        projectCards.forEach((card) => {
+          const category = card.getAttribute("data-category");
+
+          if (filter === "all" || category === filter) {
+            card.style.display = "flex";
+            requestAnimationFrame(() => {
+              card.style.opacity = "1";
+              card.style.transform = "scale(1)";
+              card.style.pointerEvents = "all";
+            });
+          } else {
+            card.style.opacity = "0";
+            card.style.transform = "scale(0.95)";
+            card.style.pointerEvents = "none";
+            setTimeout(() => {
+              const activeFilter = document.querySelector(".filter-btn.active")?.getAttribute("data-filter");
+              if (activeFilter !== "all" && category !== activeFilter) {
+                card.style.display = "none";
+              }
+            }, 300);
+          }
+        });
+      });
+    });
+  }
 });

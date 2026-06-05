@@ -610,6 +610,42 @@ body.theme-light .btn.ghost img {
   box-shadow: 0 6px 20px rgba(var(--primary-rgb), 0.15);
 }
 
+/* ==================== PROJECT FILTERS ==================== */
+.project-filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.filter-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--dur) var(--ease);
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: var(--gradient);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
 /* ==================== PROJECTS GRID ==================== */
 .projects-grid {
   display: grid;
@@ -629,7 +665,8 @@ body.theme-light .btn.ghost img {
   overflow: hidden;
   transition: transform var(--dur) var(--ease),
     border-color var(--dur) var(--ease),
-    box-shadow var(--dur) var(--ease);
+    box-shadow var(--dur) var(--ease),
+    opacity var(--dur) var(--ease);
 }
 
 .card-body {
@@ -886,6 +923,36 @@ body.theme-light .btn.ghost img {
   height: 8px;
   border-radius: 50%;
   background: var(--gradient);
+}
+
+/* Mermaid / pipeline diagram display */
+.mermaid-wrap {
+  margin-top: 1.5rem;
+  border-radius: var(--r-lg);
+  background: #0d1117;
+  border: 1px solid #c8a84b40;
+  padding: 2rem;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+}
+.mermaid-wrap .mermaid {
+  width: 100%;
+  max-width: 900px;
+}
+.mermaid-wrap svg {
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-md);
+}
+.media-section code {
+  background: rgba(139,92,246,0.15);
+  border: 1px solid rgba(139,92,246,0.3);
+  border-radius: 4px;
+  padding: 0.1em 0.45em;
+  font-size: 0.85em;
+  color: var(--accent);
+  font-family: 'Courier New', monospace;
 }
 
 /* Media grid */
