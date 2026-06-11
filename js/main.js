@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  setTheme(localStorage.getItem("theme") || "dark");
+  setTheme(localStorage.getItem("theme") || "light");
 
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
