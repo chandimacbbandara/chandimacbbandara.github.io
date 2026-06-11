@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="AI Car Damage Detection and Verification System – A computer vision pipeline using ResNet-18, ORB, and YOLOv8s to detect new vehicle damage between before/after inspection photos." />
+		<title>AI Car Damage Detection | Chandima Bandara</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+		<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+		<link rel="stylesheet" href="css/styles.css" />
+		<!-- Mermaid.js for pipeline diagram -->
+		<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+	</head>
+	<body class="theme-dark">
+		<!-- Page Loader -->
+		<div class="page-loader">
+			<div class="loader-spinner"></div>
+		</div>
+
+		<div class="scroll-progress" id="scrollProgress"></div>
+
+		<header class="site-header" id="siteHeader">
+			<nav class="navbar">
+				<a class="logo" href="index.html">CB<span class="logo-dot">.</span></a>
+				<button class="nav-toggle" aria-label="Open menu">
+					<span></span><span></span><span></span>
+				</button>
+				<div class="nav-links">
+					<a href="index.html#home">Home</a>
+					<a href="index.html#about">About</a>
+					<a href="index.html#projects">Projects</a>
+					<a href="index.html#contact">Contact</a>
+				</div>
+				<button class="theme-toggle" aria-label="Toggle dark mode">
+					<span class="theme-icon">☀</span>
+				</button>
+			</nav>
+			<a class="back-home" href="index.html#projects">← Back to Projects</a>
+		</header>
+
+		<main>
+			<section class="project-page section reveal-scale">
+				<div class="section-heading">
+					<h1>AI Car Damage Detection &amp; Verification System</h1>
+					<p>Computer vision pipeline for automated vehicle inspection using ResNet-18, ORB homography, and YOLOv8s.</p>
+				</div>
+
+				<div class="project-detail">
+					<div class="project-text reveal-left">
+						<p>
+							A computer vision system that automates vehicle damage inspection by comparing
+							before and after rental or insurance claim photos. It validates that both
+							photos show the same vehicle, geometrically aligns them to account for camera
+							angle differences, and then isolates only newly acquired damages — filtering
+							out anything that was pre-existing. The full pipeline runs through a live
+							Gradio dashboard deployed on Hugging Face Spaces.
+						</p>
+						<ul>
+							<li>ResNet-18 cosine similarity for vehicle identity verification.</li>
+							<li>ORB keypoint matching and RANSAC homography for perspective alignment.</li>
+							<li>Custom YOLOv8s model trained on 7 vehicle panel classes.</li>
+							<li>IoU-based filtering to isolate newly detected damage only.</li>
+							<li>Adjustable confidence threshold to eliminate false positives.</li>
+						</ul>
+						<div class="tag-group stagger-children">
+							<span>Python</span>
+							<span>YOLOv8</span>
+							<span>ResNet-18</span>
+							<span>OpenCV</span>
+							<span>Gradio</span>
+							<span>PyTorch</span>
+							<span>HuggingFace</span>
+							<span>Roboflow</span>
+						</div>
+						<div class="project-actions">
+							<a
+								class="btn ghost"
+								href="https://github.com/chandimacbbandara/AI-Car-Damage-Detection-System"
+								target="_blank"
+								rel="noopener"
+							>
+								<img src="assets/icons/github.svg" alt="GitHub" />
+								GitHub
+							</a>
+							<a
+								class="btn primary"
+								href="https://huggingface.co/spaces/chandimabandara/AI-Car-Damage-Detection-System"
+								target="_blank"
+								rel="noopener"
+							>
+								🤗 Live Demo
+							</a>
+						</div>
+					</div>
+					<div class="project-media reveal-right">
+						<div class="image-frame">
+							<img
+								src="https://raw.githubusercontent.com/chandimacbbandara/AI-Car-Damage-Detection-System/main/evidence/Screenshot%20from%202026-06-09%2014-32-03.png"
+								alt="AI Car Damage Detection – Gradio Dashboard"
+								data-lightbox="car-damage"
+							/>
+						</div>
+					</div>
+				</div>
+
+				<!-- Overview -->
+				<div class="media-section reveal">
+					<h2>Overview</h2>
+					<p>
+						Traditional vehicle damage inspections are manual, subjective, and prone to
+						disputes or fraud. This system replaces the manual process with a fully
+						automated three-stage computer vision pipeline. It compares a vehicle's
+						state before and after a rental period or insurance claim, verifying
+						identity, correcting for camera angle differences, and precisely isolating
+						only newly acquired damage across the four standard inspection views:
+						Front, Rear, Left, and Right.
+					</p>
+				</div>
+
+				<!-- System Architecture -->
+				<div class="media-section reveal">
+					<h2>System Architecture</h2>
+					<p>The pipeline is composed of three sequential vision stages:</p>
+					<ul>
+						<li>
+							<strong>Vehicle Identity Verification (ResNet-18):</strong> Extracts deep visual
+							feature embeddings from both images. Calculates cosine similarity to confirm
+							both photos represent the same vehicle from equivalent angles, rejecting
+							mismatches before any damage analysis begins.
+						</li>
+						<li>
+							<strong>Perspective Alignment (ORB + Homography):</strong> Detects keypoints
+							using ORB on both grayscale images, matches descriptors, and computes a
+							homography matrix via RANSAC to warp the "After" image into alignment with the
+							"Before" reference. This eliminates false positives caused by minor camera
+							shifts.
+						</li>
+						<li>
+							<strong>Damage Detection &amp; Filtering (YOLOv8s + IoU):</strong> Processes both
+							aligned images through a custom-trained YOLOv8s model. Uses Intersection-over-Union
+							filtering to identify bounding boxes that appear in the "After" state but were
+							absent in "Before" — these are marked as new damage.
+						</li>
+					</ul>
+				</div>
+
+				<!-- Mermaid Pipeline Diagram -->
+				<div class="media-section reveal">
+					<h2>Pipeline Diagram</h2>
+					<div class="mermaid-wrap">
+						<div class="mermaid">
+graph TD
+    A([Before &amp; After Images]) --> B[ResNet-18 Feature Extraction]
+    B --> C{Cosine Similarity Match?}
+    C -- No --> D([Verification Failed / Reject])
+    C -- Yes --> E[ORB Keypoint Detection &amp; Matching]
+    E --> F[Homography Perspective Alignment]
+    F --> G[Aligned After Image]
+    G --> H[YOLOv8s Damage Detection]
+    A --> H
+    H --> I[IoU Filtering]
+    I --> J([Highlight New Damage Bounding Boxes])
+						</div>
+					</div>
+				</div>
+
+				<!-- Dataset -->
+				<div class="media-section reveal">
+					<h2>Dataset</h2>
+					<p>
+						The YOLOv8s model was trained on version 4 of the Capstone Vehicle Damage
+						Dataset from Roboflow. The dataset contains annotated vehicle panels and
+						damage across <strong>7 classes</strong>: Bonnet, Bumper, Dickey, Door,
+						Fender, Light, and Windshield. Null images (empty environment, no vehicles)
+						were added to teach the model to ignore background false positives.
+					</p>
+					<div class="image-frame reveal-scale" style="margin-top: 1.5rem;">
+						<img
+							src="https://raw.githubusercontent.com/chandimacbbandara/AI-Car-Damage-Detection-System/main/evidence/dataset_class_distribution.png"
+							alt="Dataset Class Distribution"
+							data-lightbox="car-damage"
+						/>
+					</div>
+				</div>
+
+				<!-- Training -->
+				<div class="media-section reveal">
+					<h2>Model Training</h2>
+					<p>
+						The YOLOv8s model was trained for <strong>50 epochs</strong> on a Tesla T4
+						GPU. The loss curves below show consistent convergence across box loss,
+						classification loss, and DFL on both training and validation splits.
+					</p>
+					<div class="image-frame reveal-scale" style="margin-top: 1.5rem;">
+						<img
+							src="https://raw.githubusercontent.com/chandimacbbandara/AI-Car-Damage-Detection-System/main/evidence/results.png"
+							alt="Training Loss and Metrics"
+							data-lightbox="car-damage"
+						/>
+					</div>
+				</div>
+
+				<!-- Validation Performance Table -->
+				<div class="media-section reveal">
+					<h2>Validation Performance</h2>
+					<p>Validated on 834 images with 1,588 instances after 50 epochs of training:</p>
+					<div class="perf-table-wrap">
+						<table class="perf-table">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Images</th>
+									<th>Instances</th>
+									<th>Precision</th>
+									<th>Recall</th>
+									<th>mAP50</th>
+									<th>mAP50-95</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="highlight-row">
+									<td><strong>All Classes</strong></td>
+									<td>834</td>
+									<td>1588</td>
+									<td>0.592</td>
+									<td>0.523</td>
+									<td>0.537</td>
+									<td>0.277</td>
+								</tr>
+								<tr>
+									<td>Bonnet</td>
+									<td>172</td>
+									<td>175</td>
+									<td>0.692</td>
+									<td>0.538</td>
+									<td>0.591</td>
+									<td>0.313</td>
+								</tr>
+								<tr>
+									<td>Bumper</td>
+									<td>472</td>
+									<td>481</td>
+									<td>0.683</td>
+									<td>0.622</td>
+									<td>0.631</td>
+									<td>0.287</td>
+								</tr>
+								<tr>
+									<td>Dickey</td>
+									<td>64</td>
+									<td>64</td>
+									<td>0.443</td>
+									<td>0.453</td>
+									<td>0.409</td>
+									<td>0.204</td>
+								</tr>
+								<tr>
+									<td>Door</td>
+									<td>199</td>
+									<td>231</td>
+									<td>0.530</td>
+									<td>0.424</td>
+									<td>0.449</td>
+									<td>0.186</td>
+								</tr>
+								<tr>
+									<td>Fender</td>
+									<td>296</td>
+									<td>307</td>
+									<td>0.548</td>
+									<td>0.316</td>
+									<td>0.382</td>
+									<td>0.162</td>
+								</tr>
+								<tr>
+									<td>Light</td>
+									<td>206</td>
+									<td>226</td>
+									<td>0.560</td>
+									<td>0.527</td>
+									<td>0.508</td>
+									<td>0.227</td>
+								</tr>
+								<tr>
+									<td>Windshield</td>
+									<td>104</td>
+									<td>104</td>
+									<td>0.688</td>
+									<td>0.783</td>
+									<td>0.789</td>
+									<td>0.561</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Confusion Matrix -->
+				<div class="media-section reveal">
+					<h2>Confusion Matrix</h2>
+					<div class="image-frame reveal-scale">
+						<img
+							src="https://raw.githubusercontent.com/chandimacbbandara/AI-Car-Damage-Detection-System/main/evidence/confusion_matrix.png"
+							alt="Model Validation Confusion Matrix"
+							data-lightbox="car-damage"
+						/>
+					</div>
+				</div>
+
+				<!-- Challenges -->
+				<div class="media-section reveal">
+					<h2>Challenges &amp; Mitigations</h2>
+					<ul>
+						<li>
+							<strong>Background False Positives:</strong> The model initially misidentified
+							environmental structures (such as wooden carport beams) as damaged vehicle
+							parts. This was mitigated by introducing null images — photos of the empty
+							testing environment with no vehicles or bounding boxes — into the training set.
+						</li>
+						<li>
+							<strong>Inference Filtering:</strong> During live prediction, a configurable
+							confidence threshold (adjustable via the Gradio UI) strictly filters out
+							low-confidence detections. This ensures that bounding boxes are only drawn on
+							genuine, high-confidence damage detections in production.
+						</li>
+					</ul>
+				</div>
+
+				<!-- Screenshot Gallery -->
+				<div class="media-section reveal-scale">
+					<h2>Application Demo</h2>
+					<div class="carousel" data-autoplay="5000">
+						<div class="carousel-track">
+							<img
+								src="https://raw.githubusercontent.com/chandimacbbandara/AI-Car-Damage-Detection-System/main/evidence/Screenshot%20from%202026-06-09%2014-32-03.png"
+								alt="Gradio Dashboard – Inspection Result"
+								data-lightbox="car-damage"
+							/>
+							<img
+								src="https://raw.githubusercontent.com/chandimacbbandara/AI-Car-Damage-Detection-System/main/evidence/dataset_class_distribution.png"
+								alt="Dataset Class Distribution"
+								data-lightbox="car-damage"
+							/>
+							<img
+								src="https://raw.githubusercontent.com/chandimacbbandara/AI-Car-Damage-Detection-System/main/evidence/results.png"
+								alt="Training Loss and Metrics"
+								data-lightbox="car-damage"
+							/>
+							<img
+								src="https://raw.githubusercontent.com/chandimacbbandara/AI-Car-Damage-Detection-System/main/evidence/confusion_matrix.png"
+								alt="Confusion Matrix"
+								data-lightbox="car-damage"
+							/>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<div class="footer-grid">
+				<div class="footer-brand">
+					<a class="logo" href="index.html">CB<span class="logo-dot">.</span></a>
+					<p>Building impactful solutions with code, data science, and creativity.</p>
+				</div>
+				<div class="footer-col">
+					<h3>Contact</h3>
+					<a href="mailto:chandimacbbandara@gmail.com">chandimacbbandara@gmail.com</a>
+					<a href="tel:0728288317">072 828 8317</a>
+					<a href="tel:0777284169">077 728 4169</a>
+				</div>
+				<div class="footer-col">
+					<h3>Social</h3>
+					<div class="social-row">
+						<a href="https://github.com/chandimacbbandara" target="_blank" rel="noopener" aria-label="GitHub">
+							<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+						</a>
+						<a href="https://www.linkedin.com/in/chandima-bandara-b79aba301" target="_blank" rel="noopener" aria-label="LinkedIn">
+							<svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43a2.06 2.06 0 1 1 0-4.11 2.06 2.06 0 0 1 0 4.11zm15.11 13.02h-3.56v-5.6c0-1.34-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.7H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z"/></svg>
+						</a>
+						<a href="mailto:chandimacbbandara@gmail.com" aria-label="Email">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p class="footer-copy">© 2026 Chandima Bandara · Crafted with passion</p>
+			</div>
+		</footer>
+
+		<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+		</button>
+
+		<div class="lightbox" id="lightbox" aria-hidden="true">
+			<button class="lightbox-close" type="button" aria-label="Close image">×</button>
+			<img class="lightbox-image" src="" alt="" />
+		</div>
+
+		<div class="cursor-glow"></div>
+
+		<script src="js/main.js"></script>
+		<script>
+			mermaid.initialize({
+				startOnLoad: true,
+				theme: 'base',
+				themeVariables: {
+					background: '#0d1117',
+					primaryColor: '#161b22',
+					primaryTextColor: '#ffffff',
+					primaryBorderColor: '#c8a84b',
+					lineColor: '#c8a84b',
+					secondaryColor: '#1c2128',
+					tertiaryColor: '#0d1117',
+					clusterBkg: '#1c2128',
+					edgeLabelBackground: '#0d1117',
+					fontFamily: 'Poppins, sans-serif',
+					fontSize: '13px',
+					nodeBorder: '#c8a84b',
+					nodeTextColor: '#ffffff',
+					mainBkg: '#161b22',
+					titleColor: '#ffffff',
+					arrowheadColor: '#c8a84b',
+					labelBackground: '#161b22',
+					labelTextColor: '#ffffff'
+				}
+			});
+		</script>
+	</body>
+</html>
