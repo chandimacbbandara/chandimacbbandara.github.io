@@ -1,407 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="Portfolio of Chandima Bandara – Data Science specialist, Full-Stack Developer, and ML Engineer. Explore projects in web development, mobile apps, and AI." />
-		<title>Chandima Bandara | Portfolio</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-		<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
-		<link rel="stylesheet" href="css/styles.css" />
-	</head>
-	<body class="theme-light">
-		<!-- Page Loader -->
-		<div class="page-loader">
-			<div class="loader-spinner"></div>
-		</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Chandima Bandara — IT undergraduate specialising in Data Science. Building web apps, AI systems and data products." />
+  <title>Chandima Bandara — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
 
-		<div class="scroll-progress" id="scrollProgress"></div>
+<!-- Grain overlay -->
+<div class="grain"></div>
 
-		<header class="site-header" id="siteHeader">
-			<nav class="navbar">
-				<a class="logo" href="index.html">CB<span class="logo-dot">.</span></a>
-				<button class="nav-toggle" aria-label="Open menu">
-					<span></span><span></span><span></span>
-				</button>
-				<div class="nav-links">
-					<a href="#home">Home</a>
-					<a href="#about">About</a>
-					<a href="#projects">Projects</a>
-					<a href="#contact">Contact</a>
-				</div>
-				<button class="theme-toggle" aria-label="Toggle dark mode">
-					<span class="theme-icon">☾</span>
-				</button>
-			</nav>
-		</header>
+<!-- Custom cursor -->
+<div class="cursor-dot" id="cdot"></div>
+<div class="cursor-ring" id="cring"></div>
 
-		<main>
-			<section id="home" class="hero">
-				<!-- Hero Canvas -->
-				<canvas id="heroCanvas"></canvas>
+<!-- Page Loader -->
+<div class="page-loader">
+  <div class="loader-logo">CB<span>.</span></div>
+  <div class="loader-bar"></div>
+</div>
 
-				<div class="hero-content">
-					<div class="avail-badge hero-entrance hero-entrance-delay-1">
-						<span class="avail-dot"></span>
-						Available for opportunities
-					</div>
-					<h1 class="hero-entrance hero-entrance-delay-2">Hi, I'm Chandima Bandara</h1>
-					<p class="hero-subtitle hero-entrance hero-entrance-delay-3">
-						<span class="typewriter" data-phrases="Undergraduate @ SLIIT|Data Science Specialist|Full-Stack Developer|ML Engineer"></span>
-					</p>
-					<div class="hero-actions hero-entrance hero-entrance-delay-4">
-						<a class="btn primary" href="#projects">View My Projects</a>
-						<a class="btn ghost" href="assets/docs/Chandima%20Bandara.pdf" target="_blank" rel="noopener">Download CV</a>
-					</div>
-					<div class="hero-social hero-entrance hero-entrance-delay-5">
-						<a href="https://github.com/chandimacbbandara" target="_blank" rel="noopener" aria-label="GitHub">
-							<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-						</a>
-						<a href="https://www.linkedin.com/in/chandima-bandara-b79aba301" target="_blank" rel="noopener" aria-label="LinkedIn">
-							<svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43a2.06 2.06 0 1 1 0-4.11 2.06 2.06 0 0 1 0 4.11zm15.11 13.02h-3.56v-5.6c0-1.34-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.7H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z"/></svg>
-						</a>
-						<a href="mailto:chandimacbbandara@gmail.com" aria-label="Email">
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
-						</a>
-					</div>
-				</div>
-				<div class="hero-image hero-entrance">
-					<div class="profile-frame">
-						<img src="assets/images/chandima.png" alt="Chandima Bandara" loading="lazy" />
-					</div>
-				</div>
-			</section>
+<!-- Scroll progress -->
+<div id="scrollProgress"></div>
 
-			<section id="about" class="about section reveal">
-				<div class="section-heading">
-					<h2>About Me</h2>
-					<p>Undergraduate BSc (Hons) in IT, specializing in Data Science.</p>
-				</div>
-				<div class="about-grid">
-					<div class="about-text">
-						<p>
-							Highly motivated IT undergraduate with hands-on experience building
-							full-stack web &amp; mobile applications, training machine learning models,
-							and deploying intelligent AI systems. Passionate about bridging the gap
-							between cutting-edge AI research and real-world software products —
-							from RAG pipelines and LLM-powered tools to computer vision systems,
-							Spring Boot backends, and React Native apps. Seeking internship or
-							entry-level Software / AI Engineering roles.
-						</p>
-					</div>
-					<div class="skill-categories stagger-children">
-						<div class="skill-category">
-							<div class="skill-category-label">Languages</div>
-							<div class="skills-grid">
-								<span class="badge">Python</span>
-								<span class="badge">Java</span>
-								<span class="badge">JavaScript</span>
-								<span class="badge">SQL</span>
-							</div>
-						</div>
-						<div class="skill-category">
-							<div class="skill-category-label">Frameworks &amp; Tools</div>
-							<div class="skills-grid">
-								<span class="badge">Spring Boot</span>
-								<span class="badge">React Native</span>
-								<span class="badge">Node.js</span>
-								<span class="badge">LangChain</span>
-								<span class="badge">Gradio</span>
-								<span class="badge">Thymeleaf</span>
-								<span class="badge">Expo</span>
-							</div>
-						</div>
-						<div class="skill-category">
-							<div class="skill-category-label">AI / ML &amp; Computer Vision</div>
-							<div class="skills-grid">
-								<span class="badge">Machine Learning</span>
-								<span class="badge">TensorFlow</span>
-								<span class="badge">PyTorch</span>
-								<span class="badge">Scikit-learn</span>
-								<span class="badge">YOLOv8</span>
-								<span class="badge">OpenCV</span>
-								<span class="badge">RAG Pipelines</span>
-								<span class="badge">FAISS</span>
-								<span class="badge">LLMs</span>
-								<span class="badge">HuggingFace</span>
-								<span class="badge">NLP / Transformers</span>
-							</div>
-						</div>
-						<div class="skill-category">
-							<div class="skill-category-label">Databases &amp; DevOps</div>
-							<div class="skills-grid">
-								<span class="badge">MongoDB</span>
-								<span class="badge">MySQL</span>
-								<span class="badge">Git</span>
-								<span class="badge">REST APIs</span>
-								<span class="badge">Postman</span>
-							</div>
-						</div>
-					</div>
-				</div>
+<!-- ============ NAV ============ -->
+<header class="site-header" id="siteHeader">
+  <nav class="wrap">
+    <a href="#home" class="logo">chandima<span class="logo-dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">home</a></li>
+      <li><a href="#about">about</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+    <div class="header-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button class="nav-toggle" id="burger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
 
-				<div class="stats-row reveal-scale">
-					<div class="stat-card">
-						<div class="stat-number" data-target="7" data-suffix="+">0+</div>
-						<div class="stat-label">Projects Completed</div>
-					</div>
-					<div class="stat-card">
-						<div class="stat-number" data-target="25" data-suffix="+">0+</div>
-						<div class="stat-label">Technologies</div>
-					</div>
-					<div class="stat-card">
-						<div class="stat-number" data-target="5" data-suffix="+">0+</div>
-						<div class="stat-label">AI / ML Models</div>
-					</div>
-					<div class="stat-card">
-						<div class="stat-number" data-target="3" data-suffix="">0</div>
-						<div class="stat-label">Live Deployments</div>
-					</div>
-				</div>
-			</section>
+<div class="mobile-panel" id="mobilePanel">
+  <a href="#home">home</a>
+  <a href="#about">about</a>
+  <a href="#skills">skills</a>
+  <a href="#projects">projects</a>
+  <a href="#contact">contact</a>
+</div>
 
-			<section id="projects" class="projects section reveal">
-				<div class="section-heading">
-					<h2>My Projects</h2>
-					<p>Selected work showcasing web, mobile, and AI solutions.</p>
-				</div>
+<!-- ============ HERO ============ -->
+<section id="home" class="hero" style="border-top:none; padding-top:0;">
+  <div class="signal-field" id="signalField">
+    <svg preserveAspectRatio="none" viewBox="0 0 1280 800">
+      <path class="signal-line" d="M0,140 C 320,60 640,240 1280,110" style="animation-duration:52s;" />
+      <path class="signal-line" d="M0,600 C 360,680 700,500 1280,620" style="animation-duration:64s; animation-direction:reverse;" />
+      <path class="signal-line" d="M0,380 C 420,280 860,460 1280,360" style="animation-duration:46s;" />
+    </svg>
+    <div class="signal-glow" id="signalGlow"></div>
+  </div>
 
-				<div class="project-filters">
-					<button class="filter-btn active" data-filter="all">All Projects</button>
-					<button class="filter-btn" data-filter="web">Web Apps</button>
-					<button class="filter-btn" data-filter="mobile">Mobile Apps</button>
-					<button class="filter-btn" data-filter="ai">AI &amp; ML</button>
-				</div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <div>
+        <p class="hero-label">Hello, I'm Chandima Bandara</p>
+        <h1>Building digital<br />experiences with <em>code, data</em> and AI.</h1>
+        <div class="hero-type">
+          <span>I build&nbsp;</span>
+          <span class="accent-word" id="typeTarget" data-phrases="Web Applications|AI Systems|Data Products|ML Models|Digital Tools">Web Applications</span>
+          <span class="type-cursor"></span>
+        </div>
+        <p class="hero-sub">IT undergraduate specialising in Data Science at SLIIT. I build full-stack web apps, train ML models, and deploy intelligent AI systems — from RAG pipelines to computer vision to Spring Boot backends.</p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn btn-primary">View Projects <span class="arrow">→</span></a>
+          <a href="assets/docs/Chandima%20Bandara.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Download CV <span class="arrow">→</span></a>
+        </div>
+        <div class="hero-social">
+          <span class="hero-social-label">Find me on</span>
+          <!-- GitHub -->
+          <a href="https://github.com/chandimacbbandara" target="_blank" rel="noopener" aria-label="GitHub" data-cursor="hover">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/chandima-bandara-b79aba301" target="_blank" rel="noopener" aria-label="LinkedIn" data-cursor="hover">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43a2.06 2.06 0 1 1 0-4.11 2.06 2.06 0 0 1 0 4.11zm15.11 13.02h-3.56v-5.6c0-1.34-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.7H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z"/></svg>
+          </a>
+          <!-- Email -->
+          <a href="mailto:chandimacbbandara@gmail.com" aria-label="Email" data-cursor="hover">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+          </a>
+        </div>
+      </div>
 
-				<div class="projects-grid stagger-children">
-					<!-- Project 1 -->
-					<div class="project-card reveal-scale" data-category="web">
-						<div class="card-thumb">
-							<span class="card-category">Web App</span>
-							<img src="assets/images/SCMS/Screenshot from 2026-04-30 23-38-25.png" alt="Student Concern Management System (SCMS) – Web" loading="lazy" />
-						</div>
-						<div class="card-body">
-							<h3>Student Concern Management System (SCMS) – Web</h3>
-							<p>Web platform for streamlined student concern tracking.</p>
-							<div class="card-tags">
-								<span class="card-tag">Spring Boot</span>
-								<span class="card-tag">Java</span>
-								<span class="card-tag">MySQL</span>
-							</div>
-							<div class="project-card-links">
-								<a href="scms-web.html" class="link">View Details →</a>
-								<a href="http://168.231.122.124:8070/" target="_blank" class="link">Try it →</a>
-							</div>
-						</div>
-					</div>
+      <!-- Profile image -->
+      <div class="hero-portrait-wrap">
+        <div class="hero-portrait">
+          <img src="assets/images/chandima.png" alt="Chandima Bandara" loading="eager" />
+        </div>
+      </div>
+    </div>
+  </div>
 
-					<!-- Project 2 -->
-					<div class="project-card reveal-scale" data-category="mobile">
-						<div class="card-thumb">
-							<span class="card-category">Mobile App</span>
-							<img src="https://raw.githubusercontent.com/chandimacbbandara/SCMS-University-Project/main/src/main/resources/static/images/img4.jpeg" alt="Student Concern Management System (SCMS) – Mobile" loading="lazy" />
-						</div>
-						<div class="card-body">
-							<h3>Student Concern Management System (SCMS) – Mobile</h3>
-							<p>Mobile app for student concerns with secure authentication.</p>
-							<div class="card-tags">
-								<span class="card-tag">React Native</span>
-								<span class="card-tag">Node.js</span>
-								<span class="card-tag">Expo</span>
-							</div>
-							<div class="project-card-links">
-								<a href="scms-mobile.html" class="link">View Details →</a>
-							</div>
-						</div>
-					</div>
+  <div class="hero-scroll">
+    <span class="scroll-line"></span>scroll
+  </div>
+</section>
 
-					<!-- Project 3 -->
-					<div class="project-card reveal-scale" data-category="ai">
-						<div class="card-thumb">
-							<span class="card-category">AI / NLP</span>
-							<img src="assets/images/semantic-priority/home.png" alt="Semantic Priority Analysis – LMS Support Triage" loading="lazy" />
-						</div>
-						<div class="card-body">
-							<h3>Semantic Priority Analysis – LMS Support Triage</h3>
-							<p>NLP-driven triage system for support ticket prioritization.</p>
-							<div class="card-tags">
-								<span class="card-tag">Python</span>
-								<span class="card-tag">Transformers</span>
-								<span class="card-tag">NLP</span>
-							</div>
-							<div class="project-card-links">
-								<a href="semantic-priority.html" class="link">View Details →</a>
-								<a href="https://huggingface.co/spaces/chandimabandara/lms-priority-analyser" target="_blank" class="link">Try it →</a>
-							</div>
-						</div>
-					</div>
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap about-grid">
+    <h2 class="reveal">About</h2>
+    <div class="about-copy">
+      <p class="reveal"><strong>I'm an IT undergraduate at SLIIT specialising in Data Science, with a passion for full-stack software engineering, applied machine learning, and intelligent system design.</strong> I work at the intersection of code and data — building things that are fast, purposeful, and grounded in real problems.</p>
+      <p class="reveal reveal-delay-1">My background spans web and mobile development (Spring Boot, React Native), classical ML (TensorFlow, scikit-learn), and modern AI tooling — RAG pipelines, LangChain, HuggingFace, FAISS. I find the whole stack interesting, from database schema to model evaluation to the interface layer on top.</p>
+      <p class="reveal reveal-delay-2">I care about software that solves real problems. My projects include AI-powered HR tools, computer vision systems for vehicle damage detection, student concern management platforms, and predictive models for mental health risk detection.</p>
+      <div class="about-meta reveal reveal-delay-3">
+        <div><span>Based In</span><p>Sri Lanka</p></div>
+        <div><span>Focus</span><p>Full-stack &amp; Applied AI</p></div>
+        <div><span>Degree</span><p>BSc IT (Data Science) — SLIIT</p></div>
+        <div><span>Availability</span><p>Open to opportunities</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-					<!-- Project 4 -->
-					<div class="project-card reveal-scale" data-category="ai">
-						<div class="card-thumb">
-							<span class="card-category">Machine Learning</span>
-							<img src="assets/images/stress prediction AI/home.png" alt="Student Mental Health Early Detection System" loading="lazy" />
-						</div>
-						<div class="card-body">
-							<h3>Student Mental Health Early Detection System</h3>
-							<p>Predictive system for early mental health risk detection.</p>
-							<div class="card-tags">
-								<span class="card-tag">Python</span>
-								<span class="card-tag">ML</span>
-								<span class="card-tag">Scikit-learn</span>
-							</div>
-							<div class="project-card-links">
-								<a href="mental-health.html" class="link">View Details →</a>
-								<a href="https://huggingface.co/spaces/chandimabandara/stress-level-prediction-ai" target="_blank" class="link">Try it →</a>
-							</div>
-						</div>
-					</div>
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <div class="wrap">
+    <div class="skills-head reveal">
+      <h2>Skills &amp; Technologies</h2>
+      <p>Tools I reach for most often, grouped by where they sit in a typical project.</p>
+    </div>
 
-					<!-- Project 5 -->
-					<div class="project-card reveal-scale" data-category="web">
-						<div class="card-thumb">
-							<span class="card-category">Web App</span>
-							<img src="assets/images/VeloRent/Screenshot 2025-10-24 110126.png" alt="VeloRent – Car Rental System" loading="lazy" />
-						</div>
-						<div class="card-body">
-							<h3>VeloRent – Car Rental System</h3>
-							<p>Secure car rental management system with role-based access.</p>
-							<div class="card-tags">
-								<span class="card-tag">Java</span>
-								<span class="card-tag">Spring Boot</span>
-								<span class="card-tag">MySQL</span>
-							</div>
-							<div class="project-card-links">
-								<a href="velorent.html" class="link">View Details →</a>
-							</div>
-						</div>
-					</div>
+    <div class="skill-group reveal">
+      <span class="cat-name">Languages</span>
+      <div class="skill-items">
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">Java</span>
+        <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">SQL</span>
+      </div>
+    </div>
 
-				<!-- Project 6 -->
-				<div class="project-card reveal-scale" data-category="ai">
-					<div class="card-thumb">
-						<span class="card-category">AI / LLM</span>
-						<img src="assets/images/resume screening/home.png" alt="AI-Powered Resume Screening System" loading="lazy" />
-					</div>
-					<div class="card-body">
-						<h3>AI-Powered Resume Screening System</h3>
-						<p>RAG-based intelligent tool that auto-evaluates candidates with LLMs.</p>
-						<div class="card-tags">
-							<span class="card-tag">Python</span>
-							<span class="card-tag">LangChain</span>
-							<span class="card-tag">RAG</span>
-							<span class="card-tag">FAISS</span>
-						</div>
-						<div class="project-card-links">
-							<a href="resume-screening.html" class="link">View Details →</a>
-							<a href="https://huggingface.co/spaces/chandimabandara/Resume-Screening-System" target="_blank" class="link">Try it →</a>
-						</div>
-					</div>
-				</div>
+    <div class="skill-group reveal">
+      <span class="cat-name">Frameworks &amp; Tools</span>
+      <div class="skill-items">
+        <span class="skill-pill">Spring Boot</span>
+        <span class="skill-pill">React Native</span>
+        <span class="skill-pill">Node.js</span>
+        <span class="skill-pill">LangChain</span>
+        <span class="skill-pill">Gradio</span>
+        <span class="skill-pill">Thymeleaf</span>
+        <span class="skill-pill">Expo</span>
+      </div>
+    </div>
 
-				<!-- Project 7 -->
-				<div class="project-card reveal-scale" data-category="ai">
-					<div class="card-thumb">
-						<span class="card-category">AI / Computer Vision</span>
-						<img src="https://raw.githubusercontent.com/chandimacbbandara/AI-Car-Damage-Detection-System/main/evidence/Screenshot%20from%202026-06-09%2014-32-03.png" alt="AI Car Damage Detection System" loading="lazy" />
-					</div>
-					<div class="card-body">
-						<h3>AI Car Damage Detection &amp; Verification</h3>
-						<p>Computer vision pipeline to detect new vehicle damage between before/after inspection photos.</p>
-						<div class="card-tags">
-							<span class="card-tag">Python</span>
-							<span class="card-tag">YOLOv8</span>
-							<span class="card-tag">ResNet-18</span>
-							<span class="card-tag">OpenCV</span>
-						</div>
-						<div class="project-card-links">
-							<a href="car-damage-detection.html" class="link">View Details →</a>
-							<a href="https://huggingface.co/spaces/chandimabandara/AI-Car-Damage-Detection-System" target="_blank" class="link">Try it →</a>
-						</div>
-					</div>
-				</div>
+    <div class="skill-group reveal">
+      <span class="cat-name">AI / ML &amp; Computer Vision</span>
+      <div class="skill-items">
+        <span class="skill-pill">Machine Learning</span>
+        <span class="skill-pill">TensorFlow</span>
+        <span class="skill-pill">PyTorch</span>
+        <span class="skill-pill">Scikit-learn</span>
+        <span class="skill-pill">YOLOv8</span>
+        <span class="skill-pill">OpenCV</span>
+        <span class="skill-pill">RAG Pipelines</span>
+        <span class="skill-pill">FAISS</span>
+        <span class="skill-pill">LLMs</span>
+        <span class="skill-pill">HuggingFace</span>
+        <span class="skill-pill">NLP / Transformers</span>
+      </div>
+    </div>
 
-				</div>
-			</section>
+    <div class="skill-group reveal">
+      <span class="cat-name">Databases &amp; DevOps</span>
+      <div class="skill-items">
+        <span class="skill-pill">MongoDB</span>
+        <span class="skill-pill">MySQL</span>
+        <span class="skill-pill">Git</span>
+        <span class="skill-pill">REST APIs</span>
+        <span class="skill-pill">Postman</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-			<!-- Contact Section -->
-			<section id="contact" class="contact-section reveal">
-				<div class="section-heading">
-					<h2>Let's Connect</h2>
-					<p>Feel free to reach out for collaborations, opportunities, or just a friendly tech chat.</p>
-				</div>
-				<div class="contact-cards stagger-children">
-					<a href="mailto:chandimacbbandara@gmail.com" class="contact-card">
-						<div class="contact-card-icon">
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-						</div>
-						<h3>Email</h3>
-						<p>chandimacbbandara@gmail.com</p>
-					</a>
-					<a href="tel:0728288317" class="contact-card">
-						<div class="contact-card-icon">
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-						</div>
-						<h3>Phone</h3>
-						<p>072 828 8317 / 077 728 4169</p>
-					</a>
-					<a href="https://www.linkedin.com/in/chandima-bandara-b79aba301" target="_blank" rel="noopener" class="contact-card">
-						<div class="contact-card-icon">
-							<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-						</div>
-						<h3>LinkedIn</h3>
-						<p>chandima-bandara-b79aba301</p>
-					</a>
-				</div>
-			</section>
-		</main>
+<!-- ============ PROJECTS ============ -->
+<section id="projects">
+  <div class="wrap">
+    <div class="projects-head reveal">
+      <span class="eyebrow">Selected Work</span>
+      <h2>Projects &amp; case studies</h2>
+    </div>
 
-		<footer class="site-footer">
-			<div class="footer-grid">
-				<div class="footer-brand">
-					<a class="logo" href="index.html">CB<span class="logo-dot">.</span></a>
-					<p>Building impactful solutions with code, data science, and creativity.</p>
-				</div>
-				<div class="footer-col">
-					<h3>Contact</h3>
-					<a href="mailto:chandimacbbandara@gmail.com">chandimacbbandara@gmail.com</a>
-					<a href="tel:0728288317">072 828 8317</a>
-					<a href="tel:0777284169">077 728 4169</a>
-				</div>
-				<div class="footer-col">
-					<h3>Social</h3>
-					<div class="social-row">
-						<a href="https://github.com/chandimacbbandara" target="_blank" rel="noopener" aria-label="GitHub">
-							<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-						</a>
-						<a href="https://www.linkedin.com/in/chandima-bandara-b79aba301" target="_blank" rel="noopener" aria-label="LinkedIn">
-							<svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43a2.06 2.06 0 1 1 0-4.11 2.06 2.06 0 0 1 0 4.11zm15.11 13.02h-3.56v-5.6c0-1.34-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.7H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z"/></svg>
-						</a>
-						<a href="mailto:chandimacbbandara@gmail.com" aria-label="Email">
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="footer-bottom">
-				<p class="footer-copy">© 2026 Chandima Bandara · Crafted with passion</p>
-			</div>
-		</footer>
+    <!-- Filters -->
+    <div class="project-filters reveal">
+      <button class="filter-btn active" data-filter="all">all</button>
+      <button class="filter-btn" data-filter="web">web apps</button>
+      <button class="filter-btn" data-filter="mobile">mobile</button>
+      <button class="filter-btn" data-filter="ai">ai &amp; ml</button>
+    </div>
 
-		<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
-			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
-		</button>
+    <div class="projects-list">
 
-		<div class="lightbox" id="lightbox" aria-hidden="true">
-			<button class="lightbox-close" type="button" aria-label="Close image">×</button>
-			<img class="lightbox-image" src="" alt="" />
-		</div>
+      <!-- 01 SCMS Web -->
+      <div class="project reveal" data-category="web">
+        <div class="project-media" data-cursor="view">
+          <img src="assets/images/SCMS/Screenshot from 2026-04-30 23-38-25.png" alt="SCMS Web Application" loading="lazy" />
+        </div>
+        <div class="project-info">
+          <span class="index">01 / Web App</span>
+          <h3>Student Concern Management System — Web</h3>
+          <p>Centralised web platform for tracking student concerns end-to-end, with AI-assisted moderation, role-based dashboards, and resolution analytics.</p>
+          <div class="project-tech">
+            <span>Spring Boot</span><span>Java</span><span>MySQL</span><span>Thymeleaf</span><span>Gemini API</span>
+          </div>
+          <div class="project-links">
+            <a href="scms-web.html" data-cursor="hover">Case Study <span class="arrow">→</span></a>
+            <a href="http://168.231.122.124:8070/" target="_blank" rel="noopener" data-cursor="hover">Live Demo <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
 
-		<!-- Cursor Glow Dynamic Element -->
-		<div class="cursor-glow"></div>
+      <!-- 02 SCMS Mobile -->
+      <div class="project reveal" data-category="mobile">
+        <div class="project-media" data-cursor="view">
+          <img src="assets/images/SCMS-mobile/1778121987356.jpeg" alt="SCMS Mobile App" loading="lazy" />
+        </div>
+        <div class="project-info">
+          <span class="index">02 / Mobile App</span>
+          <h3>Student Concern Management System — Mobile</h3>
+          <p>Mobile-first companion to SCMS with JWT auth, real-time status tracking, medical triage workflows, and multi-role access across a MERN stack.</p>
+          <div class="project-tech">
+            <span>React Native</span><span>Expo</span><span>Node.js</span><span>MongoDB</span><span>JWT</span>
+          </div>
+          <div class="project-links">
+            <a href="scms-mobile.html" data-cursor="hover">Case Study <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
 
-		<script src="js/main.js"></script>
-	</body>
+      <!-- 03 Semantic Priority -->
+      <div class="project reveal" data-category="ai">
+        <div class="project-media" data-cursor="view">
+          <img src="assets/images/semantic-priority/home.png" alt="Semantic Priority Analyser" loading="lazy" />
+        </div>
+        <div class="project-info">
+          <span class="index">03 / AI &amp; NLP</span>
+          <h3>Semantic Priority Analysis — LMS Support Triage</h3>
+          <p>NLP-driven triage system using transformer models to intelligently classify and prioritise LMS support tickets — reducing manual review overhead significantly.</p>
+          <div class="project-tech">
+            <span>Python</span><span>Transformers</span><span>NLP</span><span>Gradio</span>
+          </div>
+          <div class="project-links">
+            <a href="semantic-priority.html" data-cursor="hover">Case Study <span class="arrow">→</span></a>
+            <a href="https://huggingface.co/spaces/chandimabandara/lms-priority-analyser" target="_blank" rel="noopener" data-cursor="hover">Try it ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 Mental Health -->
+      <div class="project reveal" data-category="ai">
+        <div class="project-media" data-cursor="view">
+          <img src="assets/images/stress prediction AI/home.png" alt="Mental Health Early Detection" loading="lazy" />
+        </div>
+        <div class="project-info">
+          <span class="index">04 / Machine Learning</span>
+          <h3>Student Mental Health Early Detection System</h3>
+          <p>End-to-end ML pipeline that identifies at-risk students from academic and stress indicators — TensorFlow MLP reaching 90.9% test accuracy.</p>
+          <div class="project-tech">
+            <span>Python</span><span>TensorFlow</span><span>Scikit-learn</span><span>Gradio</span>
+          </div>
+          <div class="project-links">
+            <a href="mental-health.html" data-cursor="hover">Case Study <span class="arrow">→</span></a>
+            <a href="https://huggingface.co/spaces/chandimabandara/stress-level-prediction-ai" target="_blank" rel="noopener" data-cursor="hover">Try it ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 VeloRent -->
+      <div class="project reveal" data-category="web">
+        <div class="project-media" data-cursor="view">
+          <img src="assets/images/VeloRent/Screenshot 2025-10-24 110126.png" alt="VeloRent Car Rental System" loading="lazy" />
+        </div>
+        <div class="project-info">
+          <span class="index">05 / Web App</span>
+          <h3>VeloRent — Car Rental System</h3>
+          <p>Secure car rental management platform with 2FA, RBAC for four roles, automated booking workflows, payment processing, and fleet lifecycle dashboards.</p>
+          <div class="project-tech">
+            <span>Java</span><span>Spring Boot</span><span>MySQL</span><span>Thymeleaf</span>
+          </div>
+          <div class="project-links">
+            <a href="velorent.html" data-cursor="hover">Case Study <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 06 Resume Screening -->
+      <div class="project reveal" data-category="ai">
+        <div class="project-media" data-cursor="view">
+          <img src="assets/images/resume screening/home.png" alt="AI Resume Screening System" loading="lazy" />
+        </div>
+        <div class="project-info">
+          <span class="index">06 / AI &amp; LLM</span>
+          <h3>AI-Powered Resume Screening System</h3>
+          <p>RAG-based tool that auto-evaluates candidate resumes against job descriptions using LLMs, semantic search, and structured scoring — built on LangChain + FAISS.</p>
+          <div class="project-tech">
+            <span>Python</span><span>LangChain</span><span>RAG</span><span>FAISS</span><span>LLMs</span>
+          </div>
+          <div class="project-links">
+            <a href="resume-screening.html" data-cursor="hover">Case Study <span class="arrow">→</span></a>
+            <a href="https://huggingface.co/spaces/chandimabandara/Resume-Screening-System" target="_blank" rel="noopener" data-cursor="hover">Try it ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 07 Car Damage -->
+      <div class="project reveal" data-category="ai">
+        <div class="project-media" data-cursor="view">
+          <img src="https://raw.githubusercontent.com/chandimacbbandara/AI-Car-Damage-Detection-System/main/evidence/Screenshot%20from%202026-06-09%2014-32-03.png" alt="AI Car Damage Detection" loading="lazy" />
+        </div>
+        <div class="project-info">
+          <span class="index">07 / Computer Vision</span>
+          <h3>AI Car Damage Detection &amp; Verification</h3>
+          <p>Computer vision pipeline that compares before/after vehicle inspection images using YOLOv8 for detection and ResNet-18 for change verification.</p>
+          <div class="project-tech">
+            <span>Python</span><span>YOLOv8</span><span>ResNet-18</span><span>OpenCV</span>
+          </div>
+          <div class="project-links">
+            <a href="car-damage-detection.html" data-cursor="hover">Case Study <span class="arrow">→</span></a>
+            <a href="https://huggingface.co/spaces/chandimabandara/AI-Car-Damage-Detection-System" target="_blank" rel="noopener" data-cursor="hover">Try it ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.projects-list -->
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <span class="eyebrow reveal">Get in touch</span>
+    <h2 class="reveal">Let's build something<br />together.</h2>
+    <a href="mailto:chandimacbbandara@gmail.com" class="contact-email reveal" data-cursor="hover">chandimacbbandara@gmail.com</a>
+    <p class="contact-sub reveal">Open to internships, junior engineering roles, AI/ML collaborations, or just a conversation about interesting problems.</p>
+    <div class="contact-links reveal">
+      <a href="https://github.com/chandimacbbandara" target="_blank" rel="noopener" data-cursor="hover">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub ↗
+      </a>
+      <a href="https://www.linkedin.com/in/chandima-bandara-b79aba301" target="_blank" rel="noopener" data-cursor="hover">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43a2.06 2.06 0 1 1 0-4.11 2.06 2.06 0 0 1 0 4.11zm15.11 13.02h-3.56v-5.6c0-1.34-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.7H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z"/></svg>
+        LinkedIn ↗
+      </a>
+      <a href="tel:0728288317" data-cursor="hover">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        072 828 8317 ↗
+      </a>
+      <a href="assets/docs/Chandima%20Bandara.pdf" target="_blank" rel="noopener" data-cursor="hover">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        Resume PDF ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap footer-row">
+    <a href="#home" class="logo">chandima<span class="logo-dot">.</span></a>
+    <div class="footer-meta">
+      <span>© 2026 Chandima Bandara</span>
+      <span class="dot">•</span>
+      <span>Sri Lanka</span>
+      <span class="dot">•</span>
+      <span>Open to opportunities</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" aria-label="Close">✕</button>
+  <img class="lightbox-image" src="" alt="" />
+</div>
+
+<script src="js/main.js"></script>
+</body>
 </html>
