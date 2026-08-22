@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DengueRadar — AI-powered dengue risk prediction and real-time mapping platform. 2nd Runners Up at Data Odyssey 2026." />
+  <title>DengueRadar | Chandima Bandara</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<div class="grain"></div>
+<div class="cursor-dot" id="cdot"></div>
+<div class="cursor-ring" id="cring"></div>
+
+<div class="page-loader">
+  <div class="loader-logo">CB<span>.</span></div>
+  <div class="loader-bar"></div>
+</div>
+
+<div id="scrollProgress"></div>
+
+<header class="site-header" id="siteHeader">
+  <nav class="wrap">
+    <a href="index.html" class="logo">chandima<span class="logo-dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#home">home</a></li>
+      <li><a href="index.html#about">about</a></li>
+      <li><a href="index.html#skills">skills</a></li>
+      <li><a href="index.html#projects" class="active">projects</a></li>
+      <li><a href="index.html#contact">contact</a></li>
+    </ul>
+    <div class="header-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button class="nav-toggle" id="burger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <a href="index.html#home">home</a>
+  <a href="index.html#about">about</a>
+  <a href="index.html#skills">skills</a>
+  <a href="index.html#projects">projects</a>
+  <a href="index.html#contact">contact</a>
+</div>
+
+<a class="back-home" href="index.html#projects">← Back to Projects</a>
+
+<main>
+  <section class="project-page section reveal-scale">
+
+    <!-- Award Banner -->
+    <div style="background:linear-gradient(135deg,rgba(92,136,242,0.12),rgba(92,136,242,0.04)); border:1px solid rgba(92,136,242,0.25); border-radius:8px; padding:20px 28px; margin-bottom:48px; display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
+      <div style="font-size:2.4rem; line-height:1;">🥉</div>
+      <div>
+        <div style="font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:4px;">Competition Achievement</div>
+        <div style="font-family:var(--display); font-weight:700; font-size:clamp(16px,2.5vw,22px); color:var(--text); line-height:1.2;">2nd Runners Up — Data Odyssey 2026</div>
+        <div style="font-size:14px; color:var(--text-dim); margin-top:4px;">Inter-University Data Science Competition &amp; Exhibition · AI &amp; Data Science Club, KDU</div>
+      </div>
+      <a href="https://shorturl.at/a0ajU" target="_blank" rel="noopener" style="margin-left:auto; font-family:var(--mono); font-size:12px; color:var(--accent); border:1px solid var(--accent); border-radius:4px; padding:8px 16px; transition:background .3s; white-space:nowrap;">Event Site ↗</a>
+    </div>
+
+    <div class="section-heading">
+      <h1>DengueRadar — Real-Time Dengue Risk Mapping</h1>
+      <p>AI-powered dengue outbreak prediction and interactive risk mapping for public health decision-making.</p>
+    </div>
+
+    <div class="project-detail">
+      <div class="project-text reveal-left">
+        <p>
+          DengueRadar is a full-stack AI platform that predicts dengue fever risk across geographic zones using 
+          machine learning models trained on historical case data, weather patterns, and environmental factors.
+          Built as a team entry for the Data Odyssey 2026 inter-university competition — where we earned 2nd Runners Up.
+        </p>
+        <ul>
+          <li>Interactive choropleth map with real-time risk level visualisation per district.</li>
+          <li>ML-based outbreak prediction using weather, humidity, and historical dengue data.</li>
+          <li>REST API backend serving risk scores and trend analysis to the frontend.</li>
+          <li>Public health dashboard with weekly forecasts and alert threshold indicators.</li>
+          <li>Responsive design for field health workers on mobile devices.</li>
+        </ul>
+        <div class="tag-group stagger-children">
+          <span>React</span>
+          <span>Node.js</span>
+          <span>Python</span>
+          <span>Machine Learning</span>
+          <span>Leaflet.js</span>
+          <span>REST API</span>
+          <span>Express</span>
+        </div>
+        <div class="project-actions">
+          <a class="btn btn-primary" href="http://145.223.22.182:3000/" target="_blank" rel="noopener">Live Demo →</a>
+          <a class="btn btn-ghost" href="https://github.com/chandimacbbandara/dengueradar" target="_blank" rel="noopener">
+            <img src="assets/icons/github.svg" alt="GitHub" style="width:15px;height:15px;" />
+            GitHub
+          </a>
+        </div>
+      </div>
+      <div class="project-media reveal-right">
+        <div class="image-frame">
+          <img
+            src="assets/images/DenguRadar/Screenshot from 2026-08-22 10-23-35.png"
+            alt="DengueRadar dashboard"
+            data-lightbox="dengue-radar"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="media-section reveal">
+      <h2>Project Overview</h2>
+      <p>
+        DengueRadar was built to address a real public health challenge in Sri Lanka — dengue outbreaks 
+        that are often difficult to predict and respond to quickly. Our team leveraged machine learning 
+        and geospatial data to create an early-warning tool that health authorities and the public 
+        can use to understand outbreak risk in their area.
+      </p>
+      <p>
+        The platform ingests weather data (temperature, rainfall, humidity), historical dengue case 
+        counts, and population density to generate district-level risk scores on a weekly basis. 
+        These scores are displayed on an interactive map with clear colour-coded risk levels (Low → Critical).
+      </p>
+    </div>
+
+    <!-- Screenshots -->
+    <div class="media-section reveal">
+      <h2>Screenshots</h2>
+      <div class="media-grid">
+        <img
+          src="assets/images/DenguRadar/Screenshot from 2026-08-22 10-22-57.png"
+          alt="DengueRadar home page"
+          data-lightbox="dengue-radar"
+          style="border-radius:4px; border:1px solid var(--line); cursor:pointer; transition:transform .3s; width:100%; object-fit:cover;"
+        />
+        <img
+          src="assets/images/DenguRadar/Screenshot from 2026-08-22 10-23-50.png"
+          alt="DengueRadar risk map"
+          data-lightbox="dengue-radar"
+          style="border-radius:4px; border:1px solid var(--line); cursor:pointer; transition:transform .3s; width:100%; object-fit:cover;"
+        />
+        <img
+          src="assets/images/DenguRadar/Screenshot from 2026-08-22 10-24-33.png"
+          alt="DengueRadar analytics"
+          data-lightbox="dengue-radar"
+          style="border-radius:4px; border:1px solid var(--line); cursor:pointer; transition:transform .3s; width:100%; object-fit:cover;"
+        />
+        <img
+          src="assets/images/DenguRadar/Screenshot from 2026-08-22 10-25-40.png"
+          alt="DengueRadar forecast"
+          data-lightbox="dengue-radar"
+          style="border-radius:4px; border:1px solid var(--line); cursor:pointer; transition:transform .3s; width:100%; object-fit:cover;"
+        />
+      </div>
+    </div>
+
+    <!-- Key Features -->
+    <div class="media-section reveal">
+      <h2>Key Features</h2>
+      <ul>
+        <li>Interactive Leaflet.js map with district-level dengue risk heat zones.</li>
+        <li>Trained ML model predicting outbreak probability based on weather features.</li>
+        <li>Real-time data refresh — risk scores updated as new environmental data arrives.</li>
+        <li>Time-series charts showing case trends and rainfall correlations.</li>
+        <li>Mobile-responsive design for on-the-ground health workers.</li>
+        <li>Alert system for districts crossing high-risk thresholds.</li>
+      </ul>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="media-section reveal">
+      <h2>Tech Stack</h2>
+      <ul>
+        <li><strong>Frontend:</strong> React.js, Leaflet.js, Chart.js</li>
+        <li><strong>Backend:</strong> Node.js, Express.js REST API</li>
+        <li><strong>ML / Data:</strong> Python, Scikit-learn, Pandas</li>
+        <li><strong>Maps:</strong> Leaflet.js with GeoJSON district boundaries</li>
+        <li><strong>Deployment:</strong> Self-hosted VPS (145.223.22.182:3000)</li>
+      </ul>
+    </div>
+
+    <!-- Award & Certificate -->
+    <div class="media-section reveal">
+      <h2>Competition &amp; Award</h2>
+      <p>
+        We participated in <strong>Data Odyssey 2026</strong>, the premier inter-university data science 
+        competition and exhibition organised by the AI &amp; Data Science Club at 
+        General Sir John Kotelawala Defence University (KDU), Sri Lanka. 
+        Competing against teams from multiple universities, our DengueRadar platform was awarded 
+        <strong>2nd Runners Up</strong> — recognising the project's innovation, real-world applicability, 
+        and technical execution.
+      </p>
+      <div style="margin-top:32px;">
+        <div style="font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-dimmer); margin-bottom:16px;">Certificate of Achievement</div>
+        <div style="border-radius:8px; overflow:hidden; border:1px solid var(--line-strong); max-width:700px; cursor:pointer;" data-lightbox="dengue-radar">
+          <img
+            src="/home/chandima-bandara/Desktop/chandimacbbandara.github.io/assets/images/DenguRadar/Certificate.png"
+            alt="Data Odyssey 2026 — 2nd Runners Up Certificate"
+            data-lightbox="dengue-radar"
+            style="width:100%; display:block;"
+          />
+        </div>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <a href="index.html" class="logo">chandima<span class="logo-dot">.</span></a>
+    <div class="footer-meta">
+      <span>© 2026 Chandima Bandara</span>
+      <span class="dot">•</span>
+      <span>Sri Lanka</span>
+      <span class="dot">•</span>
+      <span>Open to opportunities</span>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" aria-label="Close">✕</button>
+  <img class="lightbox-image" src="" alt="" />
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
