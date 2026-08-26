@@ -149,7 +149,7 @@
           style="border-radius:4px; border:1px solid var(--line); cursor:pointer; transition:transform .3s; width:100%; object-fit:cover;"
         />
         <img
-          src="assets/images/DenguRadar/Screenshot from 2026-08-22 10-24-33.png"
+          src="assets/images/DenguRadar/1.png"
           alt="DengueRadar analytics"
           data-lightbox="dengue-radar"
           style="border-radius:4px; border:1px solid var(--line); cursor:pointer; transition:transform .3s; width:100%; object-fit:cover;"
@@ -186,6 +186,25 @@
         <li><strong>Maps:</strong> Leaflet.js with GeoJSON district boundaries</li>
         <li><strong>Deployment:</strong> Self-hosted VPS (145.223.22.182:3000)</li>
       </ul>
+    </div>
+
+    <!-- Architecture & Stack -->
+    <div class="media-section reveal">
+      <h2>Architecture &amp; Stack</h2>
+      <div class="mermaid-wrap">
+        <div class="mermaid">
+graph TD
+    Client[React Web App] -->|HTTPS| Backend[Node.js / Express API]
+    Client -->|Widget Chat| Chatbot[Python Flask Chatbot]
+    WhatsApp[Vonage WhatsApp API] -->|Webhook| Chatbot
+    Chatbot -->|Queries API| Backend
+    Chatbot -->|RAG Prompts| LLM[OpenRouter / Llama 3]
+    Backend -->|MongoDB Queries| DB[(MongoDB Atlas)]
+    Backend -->|JSON Inputs| ML[FastAPI ML Service]
+    ML -->|Runs XGBoost / LSTM| ML
+    Backend -->|Queries API| Weather[OpenWeatherMap API]
+        </div>
+      </div>
     </div>
 
     <!-- Award & Certificate -->
