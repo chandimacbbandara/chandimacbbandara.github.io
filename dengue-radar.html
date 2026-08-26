@@ -272,6 +272,11 @@
     secondaryColor: '#f3f4f6', tertiaryColor: '#e8edf9'
   };
 
+  // Save original source before Mermaid replaces it with an SVG
+  document.querySelectorAll('.mermaid').forEach(el => {
+    el.dataset.original = el.textContent;
+  });
+
   function initMermaid() {
     const light = isLight();
     mermaid.initialize({
@@ -295,7 +300,7 @@
       });
       document.querySelectorAll('.mermaid').forEach(el => {
         el.removeAttribute('data-processed');
-        el.innerHTML = el.textContent;
+        el.innerHTML = el.dataset.original;
         mermaid.run({ nodes: [el] });
       });
     }, 80);
