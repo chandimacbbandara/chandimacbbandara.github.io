@@ -257,5 +257,36 @@ graph TD
 </div>
 
 <script src="js/main.js"></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: document.documentElement.getAttribute('data-theme') === 'light' ? 'default' : 'dark',
+    darkMode: document.documentElement.getAttribute('data-theme') !== 'light',
+    flowchart: { curve: 'basis', useMaxWidth: true },
+    themeVariables: {
+      darkMode: true,
+      background: '#131316',
+      primaryColor: '#1e1e24',
+      primaryBorderColor: '#3a3a48',
+      primaryTextColor: '#f2f1ec',
+      lineColor: '#5c88f2',
+      edgeLabelBackground: '#1e1e24',
+      secondaryColor: '#1a1a22',
+      tertiaryColor: '#0f0f11'
+    }
+  });
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    setTimeout(() => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      mermaid.initialize({ startOnLoad: false, theme: isLight ? 'default' : 'dark' });
+      document.querySelectorAll('.mermaid').forEach(el => {
+        const code = el.querySelector('code')?.textContent || el.dataset.src || el.textContent;
+        el.removeAttribute('data-processed');
+        mermaid.run({ nodes: [el] });
+      });
+    }, 50);
+  });
+</script>
 </body>
 </html>
