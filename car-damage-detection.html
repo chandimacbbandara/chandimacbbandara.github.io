@@ -165,8 +165,7 @@
 				<div class="media-section reveal">
 					<h2>Pipeline Diagram</h2>
 					<div class="mermaid-wrap">
-						<div class="mermaid">
-graph TD
+						<div class="mermaid">graph TD
     A([Before &amp; After Images]) --> B[ResNet-18 Feature Extraction]
     B --> C{Cosine Similarity Match?}
     C -- No --> D([Verification Failed / Reject])
@@ -176,8 +175,7 @@ graph TD
     G --> H[YOLOv8s Damage Detection]
     A --> H
     H --> I[IoU Filtering]
-    I --> J([Highlight New Damage Bounding Boxes])
-						</div>
+    I --> J([Highlight New Damage Bounding Boxes])</div>
 					</div>
 				</div>
 
@@ -397,5 +395,55 @@ graph TD
 </div>
 
 <script src="js/main.js"></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+  const isLight = () => document.documentElement.getAttribute('data-theme') === 'light';
+
+  const darkVars = {
+    background: '#131316', primaryColor: '#1e1e24', primaryBorderColor: '#3a3a48',
+    primaryTextColor: '#f2f1ec', lineColor: '#5c88f2', edgeLabelBackground: '#1e1e24',
+    secondaryColor: '#1a1a22', tertiaryColor: '#0f0f11'
+  };
+  const lightVars = {
+    background: '#ffffff', primaryColor: '#eef2ff', primaryBorderColor: '#8ba4ed',
+    primaryTextColor: '#111110', lineColor: '#3a68d8', edgeLabelBackground: '#eef2ff',
+    secondaryColor: '#f3f4f6', tertiaryColor: '#e8edf9'
+  };
+
+  // Save original source before Mermaid replaces it with an SVG
+  document.querySelectorAll('.mermaid').forEach(el => {
+    el.dataset.original = el.textContent;
+  });
+
+  function initMermaid() {
+    const light = isLight();
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: light ? 'default' : 'dark',
+      flowchart: { curve: 'basis', useMaxWidth: false, nodeSpacing: 60, rankSpacing: 80 },
+      themeVariables: light ? lightVars : darkVars
+    });
+  }
+
+  initMermaid();
+
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    setTimeout(() => {
+      const light = isLight();
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: light ? 'default' : 'dark',
+        flowchart: { curve: 'basis', useMaxWidth: false, nodeSpacing: 60, rankSpacing: 80 },
+        themeVariables: light ? lightVars : darkVars
+      });
+      document.querySelectorAll('.mermaid').forEach(el => {
+        el.removeAttribute('data-processed');
+        el.innerHTML = el.dataset.original;
+        mermaid.run({ nodes: [el] });
+      });
+    }, 80);
+  });
+</script>
 </body>
 </html>
