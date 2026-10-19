@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Student Retention Analysis & Prediction System — End-to-End Machine Learning Solution with 5-Fold Stacking Ensemble & Gradio UI by Chandima Bandara." />
+  <title>Student Retention Analysis & Prediction System | Chandima Bandara</title>
+    <script>
+    /* set theme + js flag before first paint */
+    (function () {
+      var r = document.documentElement, t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) t = 'dark';
+      r.dataset.theme = t; r.classList.add('js');
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/lab.css" />
+</head>
+<body>
+<div class="grain"></div>
+<div class="cursor-dot" id="cdot"></div>
+<div class="cursor-ring" id="cring"></div>
+
+<div class="page-loader">
+  <div class="loader-logo">CB<span>.</span></div>
+  <div class="loader-bar"></div>
+</div>
+
+<div id="scrollProgress"></div>
+
+<header class="site-header" id="siteHeader">
+  <nav class="wrap">
+    <a href="index.html" class="logo">chandima<span class="logo-dot">.</span></a>
+        <ul class="nav-links">
+      <li><a href="index.html#home">home</a></li>
+      <li><a href="index.html#about">about</a></li>
+      <li><a href="index.html#skills">skills</a></li>
+      <li><a href="index.html#lab">lab</a></li>
+      <li><a href="index.html#events">events</a></li>
+      <li><a href="index.html#projects" class="active">projects</a></li>
+      <li><a href="index.html#contact">contact</a></li>
+    </ul>
+    <div class="header-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button class="nav-toggle" id="burger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <a href="index.html#home">home</a>
+  <a href="index.html#about">about</a>
+  <a href="index.html#skills">skills</a>
+  <a href="index.html#lab">lab</a>
+  <a href="index.html#events">events</a>
+  <a href="index.html#projects">projects</a>
+  <a href="index.html#contact">contact</a>
+</div>
+
+<a class="back-home" href="index.html#projects">← Back to Projects</a>
+
+<main>
+  <section class="project-page section">
+
+    <div class="section-heading">
+      <h1>Student Retention Analysis &amp; Prediction System</h1>
+      <p>
+        An end-to-end Machine Learning solution designed to predict higher education student retention outcomes 
+        (Graduate, Enrolled, or Dropout) combining statistical EDA, domain-specific feature engineering, 
+        class imbalance mitigation via SMOTE, hyperparameter tuning, and a 5-Fold Stacking Ensemble deployed via an interactive Gradio web application.
+      </p>
+    </div>
+
+    <!-- Top Project Detail Hero -->
+    <div class="project-detail">
+      <div class="project-text reveal-left">
+        <p>
+          Early detection of students at risk of dropping out allows academic institutions to deliver timely financial, 
+          academic, and psychological interventions. This project classifies student academic status into three categories 
+          (<strong>Graduate</strong>, <strong>Enrolled</strong>, and <strong>Dropout</strong>) with high reliability and calibrated probabilities, 
+          mitigating minority class imbalance without causing data leakage.
+        </p>
+        <ul>
+          <li><strong>77.76% Accuracy &amp; 89.04% ROC-AUC</strong> achieved by the final 5-fold Stacking Ensemble.</li>
+          <li><strong>72.10% Macro-F1 Score</strong>, achieving robust classification across the minority <em>Enrolled</em> class.</li>
+          <li>Heterogeneous ensemble combining LASSO (L1), ElasticNet (L1+L2), XGBoost, and Gradient Boosting.</li>
+          <li>Logistic Regression meta-learner trained strictly on out-of-fold cross-validated probabilities.</li>
+          <li>Domain feature engineering capturing semester-over-semester grade/approval trends and financial risk.</li>
+          <li>Interactive Gradio dashboard with dynamic feature masking, random test case generator, and model selector.</li>
+        </ul>
+        <div class="tag-group stagger-children">
+          <span>Python 3.10+</span>
+          <span>Scikit-Learn</span>
+          <span>XGBoost</span>
+          <span>Stacking Ensemble</span>
+          <span>SMOTE</span>
+          <span>Gradio</span>
+          <span>Hugging Face</span>
+        </div>
+        <div class="project-actions">
+          <a class="btn btn-primary" href="https://huggingface.co/spaces/chandimabandara/student-retention-analysis" target="_blank" rel="noopener">
+            Try Live Demo ↗
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/chandimacbbandara/student-retention-analysis" target="_blank" rel="noopener">
+            <img src="assets/icons/github.svg" alt="GitHub" style="width:15px;height:15px;" />
+            GitHub Repository
+          </a>
+        </div>
+      </div>
+      <div class="project-media reveal-right">
+        <div class="image-frame">
+          <img
+            src="assets/images/student-retention/Dashboard.jpeg"
+            alt="Student Retention Analysis — Web Application Dashboard"
+            data-lightbox="student-retention"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Executive Summary & Objectives -->
+    <div class="media-section reveal" id="executive-summary">
+      <h2>Executive Summary &amp; Objectives</h2>
+      <p>
+        Early detection of students at risk of dropping out allows academic institutions to deliver timely financial, 
+        academic, and psychological intervention. This project tackles the retention prediction challenge through a multi-stage data science workflow:
+      </p>
+      <ul>
+        <li><strong>Primary Goal:</strong> Classify student academic status into three categories (<em>Dropout</em>, <em>Enrolled</em>, <em>Graduate</em>) with high reliability and calibrated probabilities.</li>
+        <li><strong>Key Challenge:</strong> Resolving class imbalance—particularly for the underrepresented <em>Enrolled</em> category—without causing data leakage.</li>
+        <li><strong>Solution:</strong> A <strong>Stacking Ensemble Classifier</strong> leveraging diverse base learners (L1/L2 regularized GLMs, Gradient Boosted Trees, and XGBoost) combined by a Logistic Regression meta-learner.</li>
+      </ul>
+
+      <div class="callout callout-note">
+        <div class="callout-title">
+          <span>🎯</span> Key Solution Highlights
+        </div>
+        <ul>
+          <li><strong>Zero Data Leakage:</strong> Synthetic Minority Over-sampling Technique (SMOTE) is applied strictly inside cross-validation training folds.</li>
+          <li><strong>Calibrated Probabilities:</strong> Out-of-fold probability distributions empower academic advisors to gauge intervention urgency.</li>
+          <li><strong>Production Deployment:</strong> Live interactive application deployed on Hugging Face Spaces with dynamic input masking.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Dataset & Feature Architecture -->
+    <div class="media-section reveal" id="dataset--feature-architecture">
+      <h2>Dataset &amp; Feature Architecture</h2>
+      <p>
+        The dataset originates from the <em>Research Center for Endogenous Resource Valorization, Polytechnic Institute of Portalegre</em>. 
+        It captures student demographic backgrounds, socioeconomic indicators, academic history, and macroeconomic context upon enrollment.
+      </p>
+
+      <h3>Key Feature Categories</h3>
+      <ul>
+        <li><strong>Demographics &amp; Family Background:</strong> Age at enrollment, gender, nationality, displaced status, marital status, educational special needs, parental qualifications, and occupations.</li>
+        <li><strong>Academic Path &amp; History:</strong> Application mode, application order, selected course, daytime/evening attendance, and prior qualification details.</li>
+        <li><strong>Academic Performance (1st &amp; 2nd Semesters):</strong> Units credited, enrolled, evaluated, approved, and grade averages for both semesters.</li>
+        <li><strong>Financial &amp; Social Support:</strong> Tuition fee payment status, debtor status, and scholarship holder status.</li>
+        <li><strong>Macroeconomic Indicators:</strong> Regional unemployment rate, inflation rate, and GDP growth rate at enrollment.</li>
+      </ul>
+
+      <h3 style="margin-top:36px;">Domain Feature Engineering</h3>
+      <p>To enhance predictive power, key ratio and trend features were constructed:</p>
+      <ul>
+        <li><code>approval_rate_1st</code> &amp; <code>approval_rate_2nd</code>: Ratio of approved units to enrolled units per semester.</li>
+        <li><code>eval_per_unit_1st</code> &amp; <code>eval_per_unit_2nd</code>: Ratio of evaluations conducted per enrolled unit.</li>
+        <li><code>approval_rate_total</code> &amp; <code>approved_total</code>: Cumulative units approved across both semesters.</li>
+        <li><code>zero_approved_any</code>: Binary flag indicating zero approved units in either semester.</li>
+        <li><code>approval_trend</code> &amp; <code>grade_trend</code>: Semester-over-semester differences in approval rates and average grades.</li>
+        <li><code>grade_mean</code>: Combined mean grade across 1st and 2nd semester evaluations.</li>
+        <li><code>financial_risk</code>: Interaction score combining debtor status and tuition fee updates.</li>
+      </ul>
+
+      <!-- Feature Architecture & Dictionary Diagram -->
+      <div class="diagram-grid-large" style="margin-top:28px;">
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Dataset Feature Mapping &amp; Categorical Dictionary</h4>
+            <span class="diagram-tag">Feature Dictionary</span>
+          </div>
+          <div class="diagram-frame">
+            <img
+              src="assets/images/student-retention/details.jpeg"
+              alt="Dataset Feature Mapping &amp; Categorical Dictionary"
+              data-lightbox="student-retention"
+            />
+          </div>
+          <p class="diagram-caption">
+            Comprehensive feature specification detailing demographics, socioeconomic predictors, curricular units, and engineered interaction terms used across modeling stages.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exploratory Data Analysis & Preprocessing -->
+    <div class="media-section reveal" id="eda--preprocessing">
+      <h2>Exploratory Data Analysis &amp; Preprocessing</h2>
+      <p>Data refinement and statistical feature selection followed a structured 3-phase methodology:</p>
+      <ul>
+        <li><strong>1. Statistical Hypothesis Testing:</strong> Applied ANOVA, Chi-Square contingency tests, Fisher's Exact test, and Tukey HSD to isolate the most statistically significant feature subsets for student outcome distinction.</li>
+        <li><strong>2. Multicollinearity Removal:</strong> Filtered highly collinear features (<code>|r| &gt; 0.85</code>) to eliminate variance inflation and maintain linear model stability.</li>
+        <li><strong>3. Imbalance Mitigation via SMOTE:</strong> Applied Synthetic Minority Over-sampling Technique (SMOTE) strictly inside cross-validation training folds, ensuring that test partitions remained representative of genuine real-world population distributions.</li>
+      </ul>
+    </div>
+
+    <!-- Machine Learning Architecture & Stacking Ensemble -->
+    <div class="media-section reveal" id="ml-architecture">
+      <h2>Machine Learning Architecture &amp; Stacking Ensemble</h2>
+      <p>
+        The system utilizes a <strong>5-Fold Cross-Validated Stacking Ensemble</strong> architecture. 
+        Four complementary base estimators generate out-of-fold probability predictions, which are passed into a Logistic Regression meta-learner.
+      </p>
+
+      <div class="mermaid-wrap">
+        <div class="mermaid">graph TD
+    subgraph S1["Input Data"]
+        X["Student Feature Matrix - 45 Features"]
+    end
+
+    subgraph S2["Base Estimators"]
+        A["LASSO Logistic L1"]
+        B["ElasticNet L1+L2"]
+        C["XGBoost Classifier"]
+        D["Gradient Boosting Classifier"]
+    end
+
+    subgraph S3["Stacking Meta-Learner"]
+        E["Logistic Regression Meta-Learner<br/>5-Fold Out-of-Fold Probabilities"]
+    end
+
+    subgraph S4["Final Outcome"]
+        F["Predicted Class: Graduate / Enrolled / Dropout"]
+    end
+
+    X --> A
+    X --> B
+    X --> C
+    X --> D
+
+    A -->|OOF Probabilities| E
+    B -->|OOF Probabilities| E
+    C -->|OOF Probabilities| E
+    D -->|OOF Probabilities| E
+
+    E --> F</div>
+      </div>
+    </div>
+
+    <!-- Model Performance & Evaluation -->
+    <div class="media-section reveal" id="model-performance">
+      <h2>Model Performance &amp; Evaluation</h2>
+      <p>
+        The <strong>Stacked Ensemble</strong> achieved top-tier performance on held-out test data, 
+        outperforming individual base models and statistical baselines across <strong>Accuracy</strong>, <strong>Macro-F1</strong>, and <strong>ROC-AUC</strong>:
+      </p>
+
+      <div class="perf-table-wrap">
+        <table class="perf-table">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Accuracy</th>
+              <th>Macro-F1</th>
+              <th>ROC-AUC</th>
+              <th>Description / Strategy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row">
+              <td><strong>FINAL STACKED ENSEMBLE</strong></td>
+              <td><strong>77.76%</strong></td>
+              <td><strong>72.10%</strong></td>
+              <td><strong>89.04%</strong></td>
+              <td><strong>Meta-Learner combining all 4 base models</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Final XGBoost (Tuned)</strong></td>
+              <td>77.40%</td>
+              <td>72.48%</td>
+              <td>88.67%</td>
+              <td>Gradient Boosted Decision Trees</td>
+            </tr>
+            <tr>
+              <td><strong>Final Gradient Boosting (Tuned)</strong></td>
+              <td>77.03%</td>
+              <td>72.37%</td>
+              <td>88.84%</td>
+              <td>Scikit-Learn Gradient Boosting</td>
+            </tr>
+            <tr>
+              <td><strong>Final LASSO (Tuned)</strong></td>
+              <td>74.99%</td>
+              <td>70.88%</td>
+              <td>88.45%</td>
+              <td>Logistic Regression with L1 Penalty</td>
+            </tr>
+            <tr>
+              <td><strong>Final Elastic Net (Tuned)</strong></td>
+              <td>74.95%</td>
+              <td>70.83%</td>
+              <td>88.42%</td>
+              <td>Logistic Regression with L1 + L2 Penalty</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-important">
+        <div class="callout-title">
+          <span>📈</span> Performance Takeaway
+        </div>
+        <p>
+          By fusing linear regularization (LASSO, ElasticNet) with non-linear tree ensembles (XGBoost, Gradient Boosting), 
+          the Stacked Ensemble achieves an optimal balance: capturing complex non-linear feature interactions while resisting overfitting on noisy tabular indicators.
+        </p>
+      </div>
+
+      <!-- Comprehensive Evaluation Diagrams -->
+      <div class="diagram-grid-large" style="margin-top:40px;">
+
+        <!-- 1. Comprehensive Alternative Models Comparison -->
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Complete Model Comparison Benchmark</h4>
+            <span class="diagram-tag">15 Model Evaluation</span>
+          </div>
+          <div class="diagram-frame">
+            <img
+              src="assets/images/student-retention/All model comparison.jpeg"
+              alt="Complete Model Comparison Benchmark"
+              data-lightbox="student-retention"
+            />
+          </div>
+          <p class="diagram-caption">
+            Comprehensive empirical leaderboard comparing all 15 baseline, statistical, regularized, and ensemble model variants tested throughout research iterations.
+          </p>
+        </div>
+
+        <!-- 2. Stacked Ensemble Confusion Matrix & Visuals -->
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Stacked Ensemble Confusion Matrix &amp; Diagnostic Views</h4>
+            <span class="diagram-tag">Confusion Matrix &amp; AUC</span>
+          </div>
+          <div class="diagram-frame">
+            <img
+              src="assets/images/student-retention/Stack model view.jpeg"
+              alt="Stacked Ensemble Confusion Matrix and Diagnostics"
+              data-lightbox="student-retention"
+            />
+          </div>
+          <p class="diagram-caption">
+            Multi-class diagnostic metrics demonstrating sharp separation between Dropout and Graduate outcomes alongside balanced recall for the underrepresented Enrolled student cohort.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Web Application & Interactive UI -->
+    <div class="media-section reveal" id="web-application">
+      <h2>Web Application &amp; Interactive UI</h2>
+      <p>
+        The production Gradio web application provides an intuitive decision-support tool for educational advisors and administrators:
+      </p>
+      <ul>
+        <li><strong>Model Selector:</strong> Dynamically switches active model pipelines (<strong>Stacked Ensemble</strong>, <strong>XGBoost</strong>, <strong>Gradient Boosting</strong>, <strong>ElasticNet</strong>, <strong>LASSO</strong>).</li>
+        <li><strong>Dynamic Feature Masking:</strong> Automatically shows or hides form fields based on the selected model's exact required features.</li>
+        <li><strong>Random Case Generator:</strong> Instantly populates realistic synthetic student profiles for rapid scenario testing.</li>
+        <li><strong>"How It Works" Tab:</strong> Interactive visual guide with embedded charts explaining the stacking architecture, metrics, and confusion matrices.</li>
+        <li><strong>"Dataset Dictionary" Tab:</strong> Comprehensive feature documentation explaining categorical mappings and unit definitions.</li>
+      </ul>
+
+      <div class="diagram-grid-large" style="margin-top:28px;">
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Interactive Gradio Application Dashboard</h4>
+            <span class="diagram-tag">Production UI</span>
+          </div>
+          <div class="diagram-frame">
+            <img
+              src="assets/images/student-retention/Dashboard.jpeg"
+              alt="Gradio Dashboard UI"
+              data-lightbox="student-retention"
+            />
+          </div>
+          <p class="diagram-caption">
+            Live interactive dashboard featuring real-time risk level computation, probability dials, and explainable intervention guidance.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hugging Face Spaces Deployment & Live Access -->
+    <div class="media-section reveal" id="deployment">
+      <h2>Deployment &amp; Live Access</h2>
+      <p>
+        The application is deployed and publicly hosted on Hugging Face Spaces:
+      </p>
+      <div style="display:flex; flex-wrap:wrap; gap:16px; margin:24px 0;">
+        <a class="btn btn-primary" href="https://huggingface.co/spaces/chandimabandara/student-retention-analysis" target="_blank" rel="noopener">
+          Launch Live Hugging Face Space ↗
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/chandimacbbandara/student-retention-analysis" target="_blank" rel="noopener">
+          <img src="assets/icons/github.svg" alt="GitHub" style="width:15px;height:15px;" />
+          View Source on GitHub ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- License & Attribution -->
+    <div class="media-section reveal" id="attribution">
+      <h2>License &amp; Attribution</h2>
+      <ul>
+        <li><strong>Dataset Credit:</strong> Research Center for Endogenous Resource Valorization, Polytechnic Institute of Portalegre.</li>
+        <li><strong>Project Developer:</strong> Chandima Bandara.</li>
+      </ul>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <a href="index.html" class="logo">chandima<span class="logo-dot">.</span></a>
+    <div class="footer-meta">
+      <span>© 2026 Chandima Bandara</span>
+      <span class="dot">•</span>
+      <span>Sri Lanka</span>
+      <span class="dot">•</span>
+      <span>Open to opportunities</span>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" aria-label="Close">✕</button>
+  <img class="lightbox-image" src="" alt="" />
+</div>
+
+<script src="js/main.js"></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+  const isLight = () => (document.documentElement.dataset.theme || document.documentElement.getAttribute('data-theme')) === 'light';
+
+    const darkVars = {
+    background: '#10141a', primaryColor: '#141820', primaryBorderColor: 'rgba(232,234,238,0.20)',
+    primaryTextColor: '#e8eaee', lineColor: '#6ee7c8', edgeLabelBackground: '#10141a',
+    secondaryColor: '#10141a', tertiaryColor: '#0b0d10'
+  };
+    const lightVars = {
+    background: '#fbfaf6', primaryColor: '#f6f4ee', primaryBorderColor: 'rgba(22,24,29,0.24)',
+    primaryTextColor: '#16181d', lineColor: '#0b7a6b', edgeLabelBackground: '#fbfaf6',
+    secondaryColor: '#f6f4ee', tertiaryColor: '#ffffff'
+  };
+
+  // Save original source before Mermaid replaces it with an SVG
+  document.querySelectorAll('.mermaid').forEach(el => {
+    el.dataset.original = el.textContent;
+  });
+
+  function initMermaid() {
+    const light = isLight();
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: light ? 'default' : 'dark',
+      flowchart: { curve: 'basis', useMaxWidth: false, nodeSpacing: 60, rankSpacing: 80 },
+      themeVariables: light ? lightVars : darkVars
+    });
+  }
+
+  initMermaid();
+
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    setTimeout(() => {
+      const light = isLight();
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: light ? 'default' : 'dark',
+        flowchart: { curve: 'basis', useMaxWidth: false, nodeSpacing: 60, rankSpacing: 80 },
+        themeVariables: light ? lightVars : darkVars
+      });
+      document.querySelectorAll('.mermaid').forEach(el => {
+        el.removeAttribute('data-processed');
+        el.innerHTML = el.dataset.original;
+        mermaid.run({ nodes: [el] });
+      });
+    }, 80);
+  });
+</script>
+</body>
+</html>
+

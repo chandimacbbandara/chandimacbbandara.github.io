@@ -4,12 +4,9 @@
 ================================================================ */
 
 /* ── THEME INITIALIZATION ───────────────────────────────────── */
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-  document.documentElement.setAttribute('data-theme', savedTheme);
-} else {
-  document.documentElement.setAttribute('data-theme', 'light');
-}
+const savedTheme = localStorage.getItem('theme') || 'dark';
+document.documentElement.dataset.theme = savedTheme;
+document.documentElement.setAttribute('data-theme', savedTheme);
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -17,14 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggles = document.querySelectorAll('.theme-toggle');
   themeToggles.forEach(btn => {
     btn.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme');
+      const current = document.documentElement.dataset.theme || document.documentElement.getAttribute('data-theme') || 'dark';
       const next = current === 'light' ? 'dark' : 'light';
-      if (next === 'dark') {
-        document.documentElement.removeAttribute('data-theme');
-      } else {
-        document.documentElement.setAttribute('data-theme', next);
-      }
-      localStorage.setItem('theme', next);
+      document.documentElement.dataset.theme = next;
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
     });
   });
 
@@ -183,11 +177,17 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+  }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
 
-  document.querySelectorAll('.reveal').forEach(el => {
+  const revealEls = document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right');
+  revealEls.forEach(el => {
     io.observe(el);
-    if (el.getBoundingClientRect().top < window.innerHeight * 0.95) el.classList.add('in');
+    if (el.getBoundingClientRect().top < window.innerHeight * 1.05) el.classList.add('in');
+  });
+  window.addEventListener('load', () => {
+    revealEls.forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight * 1.05) el.classList.add('in');
+    });
   });
 
   /* ── PROJECT FILTERS ──────────────────────────────────────── */

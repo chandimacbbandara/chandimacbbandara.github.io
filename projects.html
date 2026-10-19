@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="All projects by Chandima Bandara — web apps, mobile, AI & ML systems." />
   <title>Projects — Chandima Bandara</title>
+    <script>
+    /* set theme + js flag before first paint */
+    (function () {
+      var r = document.documentElement, t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) t = 'dark';
+      r.dataset.theme = t; r.classList.add('js');
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/lab.css" />
 </head>
 <body>
 
@@ -22,10 +32,12 @@
 <header class="site-header" id="siteHeader">
   <nav class="wrap">
     <a href="index.html" class="logo">chandima<span class="logo-dot">.</span></a>
-    <ul class="nav-links">
+        <ul class="nav-links">
       <li><a href="index.html#home">home</a></li>
       <li><a href="index.html#about">about</a></li>
       <li><a href="index.html#skills">skills</a></li>
+      <li><a href="index.html#lab">lab</a></li>
+      <li><a href="index.html#events">events</a></li>
       <li><a href="index.html#projects" class="active">projects</a></li>
       <li><a href="index.html#contact">contact</a></li>
     </ul>
@@ -45,6 +57,8 @@
   <a href="index.html#home">home</a>
   <a href="index.html#about">about</a>
   <a href="index.html#skills">skills</a>
+  <a href="index.html#lab">lab</a>
+  <a href="index.html#events">events</a>
   <a href="index.html#projects">projects</a>
   <a href="index.html#contact">contact</a>
 </div>
@@ -205,6 +219,42 @@
             <div class="card-links">
               <a href="dengue-radar.html">Case Study →</a>
               <a href="http://145.223.22.182:3000/" target="_blank" rel="noopener">Live Demo →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="ai">
+          <div class="card-thumb">
+            <span class="card-category">Learning-to-Rank</span>
+            <img src="assets/images/intelligent-employee-task-allocation/Homepage.jpeg" alt="Intelligent Task Allocation System" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <h3>Intelligent Task Allocation System</h3>
+            <p>Enterprise LTR machine learning system ranking candidate resources using XGBoost &amp; CatBoost with semantic embeddings.</p>
+            <div class="card-tags">
+              <span class="card-tag">Python</span><span class="card-tag">XGBoost</span><span class="card-tag">CatBoost</span><span class="card-tag">LTR</span>
+            </div>
+            <div class="card-links">
+              <a href="intelligent-employee-task-allocation.html">Case Study →</a>
+              <a href="https://github.com/chandimacbbandara/intelligent-employee-task-allocation" target="_blank" rel="noopener">GitHub →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="ai">
+          <div class="card-thumb">
+            <span class="card-category">Machine Learning</span>
+            <img src="assets/images/student-retention/Dashboard.jpeg" alt="Student Retention Analysis &amp; Prediction System" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <h3>Student Retention Analysis &amp; Prediction</h3>
+            <p>End-to-end ML solution predicting student retention outcomes using a 5-Fold Stacking Ensemble with SMOTE and dynamic Gradio UI.</p>
+            <div class="card-tags">
+              <span class="card-tag">Python</span><span class="card-tag">Scikit-Learn</span><span class="card-tag">XGBoost</span><span class="card-tag">Stacking</span>
+            </div>
+            <div class="card-links">
+              <a href="student-retention-analysis.html">Case Study →</a>
+              <a href="https://huggingface.co/spaces/chandimabandara/student-retention-analysis" target="_blank" rel="noopener">Live Demo →</a>
             </div>
           </div>
         </div>

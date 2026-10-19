@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Intelligent Task Allocation System — Enterprise Learning-to-Rank (LTR) Machine Learning System & Gradio Web Application by Chandima Bandara." />
+  <title>Intelligent Task Allocation System | Chandima Bandara</title>
+    <script>
+    /* set theme + js flag before first paint */
+    (function () {
+      var r = document.documentElement, t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) t = 'dark';
+      r.dataset.theme = t; r.classList.add('js');
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/lab.css" />
+  <!-- KaTeX for LaTeX formulas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+</head>
+<body>
+<div class="grain"></div>
+<div class="cursor-dot" id="cdot"></div>
+<div class="cursor-ring" id="cring"></div>
+
+<div class="page-loader">
+  <div class="loader-logo">CB<span>.</span></div>
+  <div class="loader-bar"></div>
+</div>
+
+<div id="scrollProgress"></div>
+
+<header class="site-header" id="siteHeader">
+  <nav class="wrap">
+    <a href="index.html" class="logo">chandima<span class="logo-dot">.</span></a>
+        <ul class="nav-links">
+      <li><a href="index.html#home">home</a></li>
+      <li><a href="index.html#about">about</a></li>
+      <li><a href="index.html#skills">skills</a></li>
+      <li><a href="index.html#lab">lab</a></li>
+      <li><a href="index.html#events">events</a></li>
+      <li><a href="index.html#projects" class="active">projects</a></li>
+      <li><a href="index.html#contact">contact</a></li>
+    </ul>
+    <div class="header-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button class="nav-toggle" id="burger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <a href="index.html#home">home</a>
+  <a href="index.html#about">about</a>
+  <a href="index.html#skills">skills</a>
+  <a href="index.html#lab">lab</a>
+  <a href="index.html#events">events</a>
+  <a href="index.html#projects">projects</a>
+  <a href="index.html#contact">contact</a>
+</div>
+
+<a class="back-home" href="index.html#projects">← Back to Projects</a>
+
+<main>
+  <section class="project-page section">
+
+    <div class="section-heading">
+      <h1>Intelligent Task Allocation System</h1>
+      <p>
+        An enterprise-grade Learning-to-Rank (LTR) machine learning system and production web application 
+        designed to automatically allocate incoming project tasks to the most suitable candidate resources 
+        based on technical skill taxonomy, historical performance context, dense semantic neural embeddings, 
+        and organizational domain priors.
+      </p>
+    </div>
+
+    <!-- Top Project Detail Hero -->
+    <div class="project-detail">
+      <div class="project-text reveal-left">
+        <p>
+          Assigning incoming project tasks to the optimal resource is critical for maximizing task execution quality, 
+          minimizing project delay, and maintaining balanced workload distribution. This system frames resource 
+          selection as a <strong>Learning-to-Rank (LTR)</strong> problem, ranking candidate resources using a 
+          score-averaging ensemble of <strong>XGBoostRanker</strong> and <strong>CatBoostRanker</strong> (YetiRank objective), 
+          augmented with dense text embeddings from <code>SentenceTransformer</code> and domain affinity priors.
+        </p>
+        <ul>
+          <li><strong>0.7676 NDCG@10</strong> achieved by the Ensemble Ranker on held-out test tasks.</li>
+          <li><strong>0.7283 MRR</strong> placing top-fit candidates consistently at rank 1 or 2.</li>
+          <li>Dual-model ensemble combining Optuna-tuned XGBoost (60%) and CatBoost YetiRank (40%).</li>
+          <li>768-dimensional semantic embeddings via <code>all-mpnet-base-v2</code> for cosine similarity.</li>
+          <li>Production Gradio web application styled with modern Odoo Enterprise UI and KPI smart buttons.</li>
+        </ul>
+        <div class="tag-group stagger-children">
+          <span>Python</span>
+          <span>Learning-to-Rank</span>
+          <span>XGBoost</span>
+          <span>CatBoost</span>
+          <span>SentenceTransformers</span>
+          <span>Optuna</span>
+          <span>Gradio</span>
+          <span>Odoo UI</span>
+        </div>
+        <div class="project-actions">
+          <a class="btn btn-primary" href="https://github.com/chandimacbbandara/intelligent-employee-task-allocation" target="_blank" rel="noopener">
+            <img src="assets/icons/github.svg" alt="GitHub" style="width:15px;height:15px;" />
+            View Repository →
+          </a>
+        </div>
+      </div>
+      <div class="project-media reveal-right">
+        <div class="image-frame">
+          <img
+            src="assets/images/intelligent-employee-task-allocation/Homepage.jpeg"
+            alt="Intelligent Task Allocation System — Gradio Dashboard"
+            data-lightbox="task-allocation"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Executive Overview -->
+    <div class="media-section reveal" id="executive-overview">
+      <h2>Executive Overview</h2>
+      <p>
+        In modern software organizations and IT service companies, assigning incoming project tasks to the optimal 
+        resource is critical for maximizing task execution quality, minimizing project delay, and maintaining 
+        balanced workload distribution. Traditional manual assignment relies heavily on manager intuition, 
+        which fails to scale across large candidate pools and complex skill requirements.
+      </p>
+      <p>
+        The <strong>Intelligent Task Allocation System</strong> frames resource selection as a 
+        <strong>Learning-to-Rank (LTR)</strong> problem. Instead of predicting isolated binary match probabilities, 
+        the system ranks candidate resources for a given query task using a score-averaging ensemble of 
+        <strong>XGBoostRanker</strong> and <strong>CatBoostRanker</strong> (trained with the YetiRank objective), 
+        augmented with dense text embeddings from <code>SentenceTransformer</code> and domain affinity priors.
+      </p>
+
+      <div class="callout callout-note">
+        <div class="callout-title">
+          <span>ℹ️</span> Key Benchmark Highlights
+        </div>
+        <ul>
+          <li><strong>Top-10 Normalized Discounted Cumulative Gain (NDCG@10)</strong>: <strong>0.7676</strong> achieved by the Ensemble Ranker on unseen test tasks.</li>
+          <li><strong>Mean Reciprocal Rank (MRR)</strong>: <strong>0.7283</strong> on the test set, placing optimal candidates consistently at rank 1 or 2.</li>
+          <li><strong>Out-of-Vocabulary (OOV) Resilience</strong>: Automatic taxonomy expansion and catch-all <code>Skill_Other</code> fallback mechanism prevent out-of-distribution routing failures during live inference.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- System Architecture -->
+    <div class="media-section reveal" id="system-architecture">
+      <h2>System Architecture</h2>
+      <p>
+        The following sequence details the full end-to-end data processing, feature extraction, ranking evaluation, 
+        and user presentation workflow.
+      </p>
+
+      <div class="mermaid-wrap">
+        <div class="mermaid">flowchart TD
+    subgraph S1["Data Input &amp; Ingestion"]
+        A["Manager Task Input"] --> B["Parse Logistics &amp; Deadlines"]
+        A --> C["Task Name &amp; Description Text"]
+    end
+
+    subgraph S2["Skill Mapping &amp; Natural Language Processing"]
+        C --> D["Dense Embedding: SentenceTransformer all-mpnet-base-v2"]
+        C --> E["Semantic Similarity Extraction against Skill Taxonomy"]
+        E --> F{"Known Skill Match?"}
+        F -- Yes --> G["Map to Core Skill Columns"]
+        F -- "No / Out-of-Vocabulary" --> H["Fallback to Skill_Other &amp; Synonyms"]
+    end
+
+    subgraph S3["Feature Engineering Engine"]
+        B --> I["Logistics Features: Planned Hours, Priorities, Sizes"]
+        G --> J["Skill Interaction &amp; Match Ratio Calculation"]
+        H --> J
+        D --> K["Cosine Similarity with Candidate Text Profiles"]
+        J --> L["Department &amp; Job Position Priors"]
+        K --> L
+        I --> M["Group-Relative Standardizations &amp; Z-Scores"]
+        J --> M
+        K --> M
+        L --> M
+    end
+
+    subgraph S4["Machine Learning Ranking Pipeline"]
+        M --> N["KNN / Median Imputer"]
+        N --> O1["XGBoostRanker - Optuna Tuned Weight: 0.6"]
+        N --> O2["CatBoostRanker YetiRank - Optuna Tuned Weight: 0.4"]
+        O1 --> P["MinMax Score Normalization"]
+        O2 --> P
+        P --> Q["Weighted Ensemble Score Calculation"]
+        Q --> R["Fusion with Department Priors - 40% Model / 60% Prior"]
+    end
+
+    subgraph S5["Presentation &amp; UI Layer"]
+        R --> S["Sort Candidates &amp; Generate Rank 1 to 10"]
+        S --> T["Odoo-Style Smart Buttons &amp; KPI Summary"]
+        S --> U["Kanban Cards &amp; Department Allocation Graph"]
+    end</div>
+      </div>
+    </div>
+
+    <!-- How It Works -->
+    <div class="media-section reveal" id="how-it-works">
+      <h2>How It Works</h2>
+
+      <!-- Section 1: Core Allocation Flow -->
+      <h3 id="section-1-core-allocation-flow">Section 1: Core Allocation Flow</h3>
+      <p>
+        When a project manager submits a task, the system executes a multi-stage evaluation pipeline to transform 
+        raw input text and deadlines into a ranked leaderboard of 10 recommended candidates:
+      </p>
+      <ul>
+        <li><strong>1. Task Details Parsing</strong>: Captures task name, full description, project context, estimated planned hours, priorities, and deadlines.</li>
+        <li><strong>2. Skill &amp; Text Understanding</strong>: Maps task requirements against a predefined skill taxonomy using exact matching, keyword synonyms, or dense semantic embeddings (<code>all-mpnet-base-v2</code>).</li>
+        <li><strong>3. Candidate Matching</strong>: Pulls profiles from the candidate pool and computes historical project involvement, skill match ratios, and past task volume.</li>
+        <li><strong>4. Ensemble Scoring</strong>: Passes engineered feature matrices through tuned XGBoost and CatBoost ranking models to generate calibrated score distributions.</li>
+        <li><strong>5. Prior Fusion</strong>: Blends model scores with historical department and job position affinity priors to ensure organizational domain alignment.</li>
+        <li><strong>6. Top 10 Presentation</strong>: Sorts candidates, computes fit tiers (Exceptional, High, Strong, Good, Qualified), and renders Odoo-style visual cards and analytical breakdown charts.</li>
+      </ul>
+
+      <div class="mermaid-wrap">
+        <div class="mermaid">graph LR
+    Step1["1. Task Inputs"] --> Step2["2. Extract Skills &amp; Embeddings"]
+    Step2 --> Step3["3. Construct Candidate Pair Features"]
+    Step3 --> Step4["4. XGBoost + CatBoost Ranking"]
+    Step4 --> Step5["5. Apply Department Priors"]
+    Step5 --> Step6["6. Render Top 10 Kanban UI"]</div>
+      </div>
+
+      <!-- Section 2: Manager Input Specifications -->
+      <h3 id="section-2-manager-input-specifications" style="margin-top:48px;">Section 2: Manager Input Specifications</h3>
+      <p>The manager provides the following parameters through the application interface:</p>
+
+      <div class="perf-table-wrap">
+        <table class="perf-table">
+          <thead>
+            <tr>
+              <th>Field Name</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Example Input</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Task Name</strong></td>
+              <td>Text</td>
+              <td>Concise title describing the task objective</td>
+              <td><code>Develop Custom Odoo 18 Module</code></td>
+            </tr>
+            <tr>
+              <td><strong>Task Description</strong></td>
+              <td>Text</td>
+              <td>Technical specifications, deliverables, and details</td>
+              <td><code>Implement ORM queries, PostgreSQL indexing, and custom views</code></td>
+            </tr>
+            <tr>
+              <td><strong>Project Name</strong></td>
+              <td>Dropdown</td>
+              <td>Associated client project context</td>
+              <td><code>Aruna Steel Pvt Ltd - Implementation Of Odoo 18 ERP</code></td>
+            </tr>
+            <tr>
+              <td><strong>Required Skills</strong></td>
+              <td>Multiselect</td>
+              <td>Specific technical domain skills needed</td>
+              <td><code>Odoo ERP Development</code>, <code>Database Management</code></td>
+            </tr>
+            <tr>
+              <td><strong>Estimated Hours</strong></td>
+              <td>Numeric</td>
+              <td>Planned duration required for completion</td>
+              <td><code>24.0</code></td>
+            </tr>
+            <tr>
+              <td><strong>Task Priority</strong></td>
+              <td>Dropdown</td>
+              <td>Urgency level of the task</td>
+              <td><code>High</code>, <code>Normal</code>, <code>Low</code></td>
+            </tr>
+            <tr>
+              <td><strong>Planned Task Size</strong></td>
+              <td>Dropdown</td>
+              <td>Scale of work required</td>
+              <td><code>Large</code>, <code>Medium</code>, <code>Small</code></td>
+            </tr>
+            <tr>
+              <td><strong>Deadline Date</strong></td>
+              <td>Date</td>
+              <td>Required date of completion</td>
+              <td><code>2025-07-15</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Section 3: Backend Execution Pipeline -->
+      <h3 id="section-3-backend-execution-pipeline" style="margin-top:48px;">Section 3: Backend Execution Pipeline</h3>
+      <p>The backend pipeline executes five distinct operations during inference:</p>
+      <ul>
+        <li>
+          <strong>1. Raw Text &amp; Date Formatting:</strong>
+          Calculates text length metrics: <code>Task_Name_Length</code>, <code>Task_Description_Length</code>, <code>Task_Text_Length</code>, <code>Task_Word_Count</code>, <code>Has_Task_Description</code>.
+          Computes temporal features: <code>Created_Year</code>, <code>Created_Month</code>, <code>Created_DayOfWeek</code>, <code>Created_Quarter</code>, <code>Days_To_Deadline</code>, <code>Has_Deadline</code>.
+        </li>
+        <li>
+          <strong>2. Logistics One-Hot Encoding:</strong>
+          Transforms <code>Estimated_Planned_Hours</code> to logarithmic scale <code>Planned_Hours_Log = log(1 + hours)</code>.
+          Applies persisted <code>OneHotEncoder</code> objects for categorical attributes (<code>Task_Priority</code>, <code>Planned_Task_Size</code>).
+        </li>
+        <li>
+          <strong>3. Out-of-Vocabulary (OOV) Skill Mapping:</strong>
+          Resolves incoming skill tags against taxonomy columns.
+          Maps synonyms (e.g., <code>Data Analysis</code> to <code>Skill_Data_Science</code>, <code>AI</code> / <code>Deep Learning</code> to <code>Skill_Machine_Learning</code>).
+          If an unrecognized or non-corporate skill is provided, it is automatically assigned to <code>Skill_Other</code> to avoid zero-vector feature corruption.
+        </li>
+        <li>
+          <strong>4. Dense Semantic Embedding Comparison:</strong>
+          Encodes task text and candidate historical text profiles into 768-dimensional dense vectors using <code>SentenceTransformer('sentence-transformers/all-mpnet-base-v2')</code>.
+          Calculates <code>semantic_text_similarity</code> using paired cosine similarity:
+          <div class="math-display">
+            $$\text{Similarity}(T, C) = 1 - \text{CosineDistance}(V_{\text{task}}, V_{\text{candidate}})$$
+          </div>
+        </li>
+        <li>
+          <strong>5. Group-Relative Feature Engineering:</strong>
+          Calculates standard scores (Z-scores) and mean differences for top candidate features within the current task candidate group to capture relative dominance among competitors.
+        </li>
+      </ul>
+
+      <!-- Section 4: Expanded Skill Taxonomy -->
+      <h3 id="section-4-expanded-skill-taxonomy" style="margin-top:48px;">Section 4: Expanded Skill Taxonomy</h3>
+      <p>
+        The system defines an expanded multi-domain skill taxonomy divided into Corporate Odoo, 
+        Academic &amp; Data Science, and Miscellaneous catch-all categories:
+      </p>
+
+      <div class="mermaid-wrap">
+        <div class="mermaid">mindmap
+  root((Skill Taxonomy))
+    ["Corporate &amp; Odoo"]
+      ["Odoo ERP Development"]
+      ["Database Management"]
+      ["Server Administration"]
+      ["Project Management"]
+      ["Software Testing"]
+      ["Web Development"]
+      ["Client &amp; Functional Support"]
+      ["Documentation"]
+      ["Training &amp; Mentorship"]
+      ["Business Intelligence"]
+      ["Data Engineering"]
+    ["Academic &amp; Data Science"]
+      ["Research"]
+      ["Academic Writing"]
+      ["Data Science"]
+      ["Machine Learning"]
+      ["NLP"]
+    ["Catch-All"]
+      ["Skill_Other"]</div>
+      </div>
+
+      <ul style="margin-top:20px;">
+        <li><strong>Odoo ERP Development</strong>: Odoo ERP, Odoo addons, Odoo modules, Python Odoo framework, ORM.</li>
+        <li><strong>Database Management</strong>: SQL queries, PostgreSQL, MySQL, database backup, schema migration, indexing.</li>
+        <li><strong>Server Administration</strong>: Linux server, VPS, SSL certificates, Nginx, Apache, Docker, deployment scripts.</li>
+        <li><strong>Project Management</strong>: Sprint planning, scrum master, project coordination, stakeholder meetings, status reports.</li>
+        <li><strong>Software Testing</strong>: Test cases, QA, UAT, Selenium, pytest, automated testing, bug reporting, debugging.</li>
+        <li><strong>Web Development</strong>: Frontend React/Angular/Vue, backend API REST, JavaScript, TypeScript, Python, Flask, Django.</li>
+        <li><strong>Client &amp; Functional Support</strong>: Client support tickets, functional support, customer issue troubleshooting, live chat.</li>
+        <li><strong>Documentation</strong>: Technical documentation writing, blueprint, specification, user manual, API docs.</li>
+        <li><strong>Training &amp; Mentorship</strong>: Intern training, onboarding, mentorship sessions, knowledge transfer.</li>
+        <li><strong>Business Intelligence &amp; Data Visualization</strong>: Tableau dashboards, Power BI reports, chart visualization, KPI metrics.</li>
+        <li><strong>Data Engineering &amp; Warehousing</strong>: ETL pipelines, data warehousing, Snowflake, dimensional modeling, dbt, Airflow.</li>
+        <li><strong>Research</strong>: Academic research, literature review, scientific investigation, methodology, study design.</li>
+        <li><strong>Academic Writing</strong>: Research paper writing, scientific publishing, manuscript drafting, thesis, citations, peer review.</li>
+        <li><strong>Data Science</strong>: Exploratory data analysis, statistical analysis, predictive modeling, pandas, numpy, scipy, data mining.</li>
+        <li><strong>Machine Learning</strong>: Supervised/unsupervised learning, scikit-learn, model training, feature selection, evaluation metrics.</li>
+        <li><strong>NLP</strong>: Natural language processing, text classification, transformers, sentiment analysis, NER, tokenization.</li>
+        <li><strong>Other (<code>Skill_Other</code>)</strong>: Miscellaneous tasks, general administration, ad-hoc activities, unclassified or OOV skills.</li>
+      </ul>
+
+      <!-- Section 5: Ensemble Model & Prior Fusion -->
+      <h3 id="section-5-ensemble-model--prior-fusion" style="margin-top:48px;">Section 5: Ensemble Model &amp; Prior Fusion</h3>
+      <p>The final ranking score combines predictions from two Optuna-tuned gradient boosted decision tree rankers and organizational domain priors:</p>
+      
+      <h4>1. MinMax Score Normalization</h4>
+      <p>Raw scores $S_{\text{xgb}}$ and $S_{\text{cat}}$ are scaled per task group:</p>
+      <div class="math-display">
+        $$S_{\text{norm}} = \frac{S - \min(S)}{\max(S) - \min(S) + \epsilon}$$
+      </div>
+
+      <h4>2. Score-Averaging Combination</h4>
+      <div class="math-display">
+        $$S_{\text{model}} = (0.6 \times S_{\text{norm, xgb}}) + (0.4 \times S_{\text{norm, cat}})$$
+      </div>
+
+      <h4>3. Prior Fusion</h4>
+      <div class="math-display">
+        $$\text{Score}_{\text{final}} = (0.4 \times S_{\text{model}}) + (0.6 \times \text{Prior}_{\text{dept}})$$
+      </div>
+    </div>
+
+    <!-- Feature Engineering & Technical Representation -->
+    <div class="media-section reveal" id="feature-engineering--technical-representation">
+      <h2>Feature Engineering &amp; Technical Representation</h2>
+
+      <h3 id="feature-engineering-pipeline">Feature Engineering Pipeline</h3>
+      <p>The system constructs a 72-dimensional feature matrix for every candidate pair $(T_i, C_j)$:</p>
+      <ul>
+        <li>
+          <strong>Candidate-Task Skill Matches:</strong>
+          <ul>
+            <li><code>employee_task_skill_match_count</code>: Total count of required skills possessed by the candidate.</li>
+            <li><code>employee_task_skill_match_ratio</code>: $\frac{\text{match\_count}}{\max(\text{task\_skill\_count}, 1)}$.</li>
+            <li><code>employee_task_skill_strength</code>: Weighted sum of skill proficiency profiles.</li>
+            <li><code>employee_has_matching_skill</code>: Binary indicator (1 if match count &gt; 0, else 0).</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Dense Semantic Text Similarity:</strong>
+          <ul>
+            <li><code>semantic_text_similarity</code>: Cosine similarity between task description embeddings and historical task text written by the candidate.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Historical Experience &amp; Domain Priors:</strong>
+          <ul>
+            <li><code>employee_project_task_count</code>: Number of tasks completed by candidate in the specific target project.</li>
+            <li><code>employee_has_project_experience</code>: Binary flag for project familiarity.</li>
+            <li><code>Task_Employee_Skill_Match</code>: Interaction metric blending historical candidate skill frequency and department-level skill affinity.</li>
+            <li><code>dept_skill_prior</code>: Domain prior blending department affinity and job title alignments.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3 id="group-relative-z-scores" style="margin-top:40px;">Group-Relative Z-Scores</h3>
+      <p>
+        To enable ranking models to compare candidates within the context of a single task request, 
+        group-relative transformation is applied to top features:
+      </p>
+
+      <div class="math-display">
+        $$X_{\text{diff}} = X_{ij} - \bar{X}_i$$
+      </div>
+
+      <div class="math-display">
+        $$X_{\text{zscore}} = \frac{X_{ij} - \bar{X}_i}{\sigma_i + \epsilon}$$
+      </div>
+
+      <p>
+        Applied features include <code>employee_task_skill_match_ratio</code>, <code>employee_task_skill_strength</code>, 
+        <code>employee_project_task_count</code>, <code>employee_historical_task_count</code>, 
+        <code>Task_Employee_Skill_Match</code>, and <code>semantic_text_similarity</code>.
+      </p>
+    </div>
+
+    <!-- Model Training, Evaluation & Benchmarks -->
+    <div class="media-section reveal" id="model-training-evaluation--benchmarks">
+      <h2>Model Training, Evaluation &amp; Benchmarks</h2>
+
+      <h3 id="master-performance-leaderboard">Master Performance Leaderboard</h3>
+      <p>
+        All models were evaluated across validation and held-out test splits using standard Learning-to-Rank metrics:
+      </p>
+      <ul>
+        <li><strong>NDCG@K (Normalized Discounted Cumulative Gain at K=5, 10)</strong>: Measures ranking quality penalizing relevant items placed lower in the list.</li>
+        <li><strong>MRR (Mean Reciprocal Rank)</strong>: Evaluates reciprocal rank of the first relevant candidate.</li>
+      </ul>
+
+      <div class="perf-table-wrap">
+        <table class="perf-table">
+          <thead>
+            <tr>
+              <th>Ranking Model</th>
+              <th>Model Paradigm</th>
+              <th>Val NDCG@5</th>
+              <th>Val NDCG@10</th>
+              <th>Val MRR</th>
+              <th>Test NDCG@5</th>
+              <th>Test NDCG@10</th>
+              <th>Test MRR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row">
+              <td><strong>Ensemble (XGBoost 60% + CatBoost 40%)</strong></td>
+              <td><strong>Score-Averaging LTR</strong></td>
+              <td><strong>0.7812</strong></td>
+              <td><strong>0.7895</strong></td>
+              <td><strong>0.7592</strong></td>
+              <td><strong>0.7587</strong></td>
+              <td><strong>0.7676</strong></td>
+              <td><strong>0.7283</strong></td>
+            </tr>
+            <tr>
+              <td><strong>XGBoostRanker (Optuna Tuned)</strong></td>
+              <td>Pairwise LTR</td>
+              <td>0.7780</td>
+              <td>0.7840</td>
+              <td>0.7510</td>
+              <td>0.7558</td>
+              <td>0.7630</td>
+              <td>0.7217</td>
+            </tr>
+            <tr>
+              <td><strong>CatBoostRanker (Optuna Tuned)</strong></td>
+              <td>YetiRank LTR</td>
+              <td>0.7822</td>
+              <td>0.7899</td>
+              <td>0.7564</td>
+              <td>0.7477</td>
+              <td>0.7571</td>
+              <td>0.7148</td>
+            </tr>
+            <tr>
+              <td><strong>XGBoostRanker (Baseline)</strong></td>
+              <td>Pairwise LTR</td>
+              <td>0.7420</td>
+              <td>0.7531</td>
+              <td>0.7342</td>
+              <td>0.6170</td>
+              <td>0.6301</td>
+              <td>0.6029</td>
+            </tr>
+            <tr>
+              <td><strong>CatBoostRanker (Baseline)</strong></td>
+              <td>YetiRank LTR</td>
+              <td>0.7513</td>
+              <td>0.7591</td>
+              <td>0.7396</td>
+              <td>0.6099</td>
+              <td>0.6200</td>
+              <td>0.5848</td>
+            </tr>
+            <tr>
+              <td><strong>Random Forest</strong></td>
+              <td>Pointwise Classification</td>
+              <td>0.5866</td>
+              <td>0.6271</td>
+              <td>0.5893</td>
+              <td>0.4603</td>
+              <td>0.4967</td>
+              <td>0.4446</td>
+            </tr>
+            <tr>
+              <td><strong>Logistic Regression</strong></td>
+              <td>Linear Baseline</td>
+              <td>0.4728</td>
+              <td>0.5227</td>
+              <td>0.4708</td>
+              <td>0.3280</td>
+              <td>0.3810</td>
+              <td>0.3211</td>
+            </tr>
+            <tr>
+              <td><strong>LightGBMRanker</strong></td>
+              <td>LambdaMART Baseline</td>
+              <td>0.4640</td>
+              <td>0.5141</td>
+              <td>0.4631</td>
+              <td>0.3344</td>
+              <td>0.3825</td>
+              <td>0.3193</td>
+            </tr>
+            <tr>
+              <td><strong>Heuristic Rule Baseline</strong></td>
+              <td>Rule-Based</td>
+              <td>0.2211</td>
+              <td>0.2752</td>
+              <td>0.2467</td>
+              <td>0.1720</td>
+              <td>0.2332</td>
+              <td>0.2096</td>
+            </tr>
+            <tr>
+              <td><strong>Random Baseline</strong></td>
+              <td>Random Chance</td>
+              <td>0.0683</td>
+              <td>0.1154</td>
+              <td>0.1135</td>
+              <td>0.0654</td>
+              <td>0.1107</td>
+              <td>0.1078</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-important">
+        <div class="callout-title">
+          <span>⚠️</span> Key Metric Takeaway
+        </div>
+        <p>
+          Moving from pointwise classification (Random Forest) to pairwise/listwise Learning-to-Rank 
+          (XGBoost/CatBoost) yielded a <strong>+54.5% relative increase in Test NDCG@10</strong> 
+          (from 0.4967 to 0.7676).
+        </p>
+      </div>
+
+      <!-- Hyperparameter Optimization -->
+      <h3 id="hyperparameter-optimization" style="margin-top:48px;">Hyperparameter Optimization</h3>
+      <p>Hyperparameter tuning was conducted using <strong>Optuna</strong> over 50 trials for both primary rankers:</p>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin-top:16px;">
+        <div style="background:var(--bg-raised); border:1px solid var(--line); border-radius:6px; padding:20px;">
+          <h4 style="margin-top:0; color:var(--accent);">XGBoostRanker (Optuna Best Parameters)</h4>
+          <ul>
+            <li><code>grow_policy</code>: <code>lossguide</code></li>
+            <li><code>max_leaves</code>: <code>157</code></li>
+            <li><code>n_estimators</code>: <code>400</code></li>
+            <li><code>learning_rate</code>: <code>0.1136</code></li>
+            <li><code>max_depth</code>: <code>6</code></li>
+            <li><code>min_child_weight</code>: <code>2</code></li>
+            <li><code>subsample</code>: <code>0.8241</code></li>
+            <li><code>colsample_bytree</code>: <code>0.6789</code></li>
+            <li><code>reg_alpha</code>: <code>0.7958</code></li>
+            <li><code>reg_lambda</code>: <code>0.3784</code></li>
+          </ul>
+        </div>
+        <div style="background:var(--bg-raised); border:1px solid var(--line); border-radius:6px; padding:20px;">
+          <h4 style="margin-top:0; color:var(--accent);">CatBoostRanker (Optuna Best Parameters)</h4>
+          <ul>
+            <li><code>iterations</code>: <code>600</code></li>
+            <li><code>learning_rate</code>: <code>0.0777</code></li>
+            <li><code>depth</code>: <code>10</code></li>
+            <li><code>l2_leaf_reg</code>: <code>1.6542</code></li>
+            <li><code>random_strength</code>: <code>1.9720</code></li>
+            <li><code>loss_function</code>: <code>YetiRank</code></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Performance Visualization Diagrams -->
+      <h3 id="performance-visualization-diagrams" style="margin-top:48px;">Performance Visualization Diagrams</h3>
+      <p>
+        Below are the empirical evaluation diagrams comparing model paradigms, Optuna tuning histories, 
+        and ensemble performance displayed in high-resolution format:
+      </p>
+
+      <div class="diagram-grid-large">
+
+        <!-- 1. Complete Model Leaderboard & Ensemble Comparison -->
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Complete Model Leaderboard &amp; Ensemble Comparison</h4>
+            <span class="diagram-tag">Ensemble vs All Models</span>
+          </div>
+          <div class="diagram-frame">
+            <img
+              src="assets/images/intelligent-employee-task-allocation/Complete Model Leaderboard & Ensemble Comparison.jpeg"
+              alt="Complete Model Leaderboard & Ensemble Comparison"
+              data-lightbox="task-allocation"
+            />
+          </div>
+          <p class="diagram-caption">
+            Comprehensive evaluation comparing test NDCG@5, NDCG@10, and MRR metrics across all models, proving the 
+            superiority of the 60% XGBoost + 40% CatBoost score-averaging ensemble over standalone rankers and baselines.
+          </p>
+        </div>
+
+        <!-- 2. Baseline Model Comparison Before Tuning -->
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Baseline Model Comparison Before Tuning</h4>
+            <span class="diagram-tag">Pre-Tuning Benchmark</span>
+          </div>
+          <div class="diagram-frame">
+            <img
+              src="assets/images/intelligent-employee-task-allocation/Baseline Model Comparison Before Tuning.jpeg"
+              alt="Baseline Model Comparison Before Tuning"
+              data-lightbox="task-allocation"
+            />
+          </div>
+          <p class="diagram-caption">
+            Initial baseline performance across all paradigms prior to hyperparameter optimization, showing raw LTR rankers 
+            already substantially surpassing classification approaches.
+          </p>
+        </div>
+
+        <!-- 3. Baseline NDCG Curve Comparison -->
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Baseline NDCG Curve Comparison</h4>
+            <span class="diagram-tag">Ranking Curves</span>
+          </div>
+          <div class="diagram-frame">
+            <img
+              src="assets/images/intelligent-employee-task-allocation/Baseline NDCG Curve Comparison.png"
+              alt="Baseline NDCG Curve Comparison"
+              data-lightbox="task-allocation"
+            />
+          </div>
+          <p class="diagram-caption">
+            NDCG curves across cutoffs K=1 through K=10, highlighting sustained ranking quality across top candidate ranks.
+          </p>
+        </div>
+
+        <!-- 4. Ensemble Model Showdown -->
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Ensemble Model Showdown</h4>
+            <span class="diagram-tag">Ensemble Analysis</span>
+          </div>
+          <div class="diagram-frame">
+            <img
+              src="assets/images/intelligent-employee-task-allocation/Ensemble Model Showdown.png"
+              alt="Ensemble Model Showdown"
+              data-lightbox="task-allocation"
+            />
+          </div>
+          <p class="diagram-caption">
+            Direct comparison showing the complementary strengths of XGBoostRanker and CatBoostRanker (YetiRank) 
+            combined via score-averaging.
+          </p>
+        </div>
+
+        <!-- 5 & 6. Side-by-Side Optuna Tuned Performance -->
+        <div class="diagram-row-2col">
+          <div class="diagram-card">
+            <div class="diagram-header">
+              <h4>Optuna Tuned CatBoost Ranker</h4>
+              <span class="diagram-tag">CatBoost YetiRank</span>
+            </div>
+            <div class="diagram-frame">
+              <img
+                src="assets/images/intelligent-employee-task-allocation/Optuna Tuned CatBoost Ranker Performance.png"
+                alt="Optuna Tuned CatBoost Ranker Performance"
+                data-lightbox="task-allocation"
+              />
+            </div>
+            <p class="diagram-caption">
+              Convergence and validation metric progression across 50 Optuna optimization trials for CatBoostRanker.
+            </p>
+          </div>
+
+          <div class="diagram-card">
+            <div class="diagram-header">
+              <h4>Optuna Tuned XGBoost Ranker</h4>
+              <span class="diagram-tag">XGBoost Pairwise</span>
+            </div>
+            <div class="diagram-frame">
+              <img
+                src="assets/images/intelligent-employee-task-allocation/Optuna Tuned XGBoost Ranker Performance.png"
+                alt="Optuna Tuned XGBoost Ranker Performance"
+                data-lightbox="task-allocation"
+              />
+            </div>
+            <p class="diagram-caption">
+              Parameter optimization progression and lossguide tree growth tuning across 50 Optuna trials for XGBoostRanker.
+            </p>
+          </div>
+        </div>
+
+        <!-- 7. Optuna Tuned NDCG@10 Metric Progression -->
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Optuna Tuned NDCG@10 Metric Progression</h4>
+            <span class="diagram-tag">Metric Trajectory</span>
+          </div>
+          <div class="diagram-frame">
+            <img
+              src="assets/images/intelligent-employee-task-allocation/Optuna Tuned NDCG@10 Metric Progression.png"
+              alt="Optuna Tuned NDCG@10 Metric Progression"
+              data-lightbox="task-allocation"
+            />
+          </div>
+          <p class="diagram-caption">
+            Evolution of NDCG@10 validation score throughout the Optuna study, showing steady convergence towards the global optimum.
+          </p>
+        </div>
+
+        <!-- 8. Optuna vs Grid Search Comparison -->
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Optuna vs Grid Search Comparison</h4>
+            <span class="diagram-tag">Optimization Efficiency</span>
+          </div>
+          <div class="diagram-frame">
+            <img
+              src="assets/images/intelligent-employee-task-allocation/Optuna vs Grid Search Comparison.png"
+              alt="Optuna vs Grid Search Comparison"
+              data-lightbox="task-allocation"
+            />
+          </div>
+          <p class="diagram-caption">
+            Empirical efficiency comparison demonstrating Optuna Bayesian optimization finding higher NDCG configurations 
+            in a fraction of the compute iterations required by brute-force Grid Search.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Web Application & UI Architecture -->
+    <div class="media-section reveal" id="web-application--ui-architecture">
+      <h2>Web Application &amp; UI Architecture</h2>
+      <p>
+        The system features a production-ready Gradio interface (<code>app.py</code>) designed with custom HTML/CSS 
+        imitating the modern <strong>Odoo Enterprise UI</strong>:
+      </p>
+
+      <div class="mermaid-wrap">
+        <div class="mermaid">graph TD
+    UI["Gradio Web Interface (app.py)"]
+    UI --> Tab1["Tab 1: Task Allocation Dashboard"]
+    UI --> Tab2["Tab 2: How It Works &amp; Architecture Guide"]
+
+    Tab1 --> Form["Manager Task Form &amp; Quick Templates"]
+    Form --> Backend["predict_top_10_employees Function"]
+    Backend --> Render1["Render Odoo Smart Button KPIs"]
+    Backend --> Render2["Render Kanban Candidate Cards"]
+    Backend --> Render3["Render Department Allocation Chart"]
+
+    Render1 --> Output["Interactive Dashboard View"]
+    Render2 --> Output
+    Render3 --> Output</div>
+      </div>
+
+      <h3 style="margin-top:36px;">Key Interface Features</h3>
+      <ul>
+        <li><strong>Quick Input Templates</strong>: One-click pre-population for common enterprise task scenarios (<code>Odoo Module Development</code>, <code>QA &amp; Automated Testing</code>, <code>Academic ML Paper Writing</code>, <code>Database Maintenance</code>).</li>
+        <li><strong>Odoo-Style KPI Smart Buttons</strong>: Real-time summary displaying total candidates evaluated, best match score percentage, average candidate match score, and leading department.</li>
+        <li><strong>Kanban Record Cards</strong>: Color-coded candidate cards with initials avatar, rank badges (#1 Top Match, #2 Runner Up, #3 Top Candidate), fit tier ribbons, score ring indicators, and job role details.</li>
+        <li><strong>Department Allocation Progress Chart</strong>: Visual breakdown of recommended candidate distribution across organizational departments.</li>
+        <li><strong>ZeroGPU Compatibility</strong>: Includes startup dummy warmup hooks for seamless execution on HuggingFace Spaces / ZeroGPU environments.</li>
+      </ul>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <a href="index.html" class="logo">chandima<span class="logo-dot">.</span></a>
+    <div class="footer-meta">
+      <span>© 2026 Chandima Bandara</span>
+      <span class="dot">•</span>
+      <span>Sri Lanka</span>
+      <span class="dot">•</span>
+      <span>Open to opportunities</span>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" aria-label="Close">✕</button>
+  <img class="lightbox-image" src="" alt="" />
+</div>
+
+<script src="js/main.js"></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+  const isLight = () => (document.documentElement.dataset.theme || document.documentElement.getAttribute('data-theme')) === 'light';
+
+    const darkVars = {
+    background: '#10141a', primaryColor: '#141820', primaryBorderColor: 'rgba(232,234,238,0.20)',
+    primaryTextColor: '#e8eaee', lineColor: '#6ee7c8', edgeLabelBackground: '#10141a',
+    secondaryColor: '#10141a', tertiaryColor: '#0b0d10'
+  };
+    const lightVars = {
+    background: '#fbfaf6', primaryColor: '#f6f4ee', primaryBorderColor: 'rgba(22,24,29,0.24)',
+    primaryTextColor: '#16181d', lineColor: '#0b7a6b', edgeLabelBackground: '#fbfaf6',
+    secondaryColor: '#f6f4ee', tertiaryColor: '#ffffff'
+  };
+
+  // Save original source before Mermaid replaces it with an SVG
+  document.querySelectorAll('.mermaid').forEach(el => {
+    el.dataset.original = el.textContent;
+  });
+
+  function initMermaid() {
+    const light = isLight();
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: light ? 'default' : 'dark',
+      flowchart: { curve: 'basis', useMaxWidth: false, nodeSpacing: 60, rankSpacing: 80 },
+      themeVariables: light ? lightVars : darkVars
+    });
+  }
+
+  initMermaid();
+
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    setTimeout(() => {
+      const light = isLight();
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: light ? 'default' : 'dark',
+        flowchart: { curve: 'basis', useMaxWidth: false, nodeSpacing: 60, rankSpacing: 80 },
+        themeVariables: light ? lightVars : darkVars
+      });
+      document.querySelectorAll('.mermaid').forEach(el => {
+        el.removeAttribute('data-processed');
+        el.innerHTML = el.dataset.original;
+        mermaid.run({ nodes: [el] });
+      });
+    }, 80);
+  });
+</script>
+</body>
+</html>

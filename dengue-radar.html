@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="DengueRadar — AI-powered dengue risk prediction and real-time mapping platform. 2nd Runners Up at Data Odyssey 2026." />
   <title>DengueRadar | Chandima Bandara</title>
+    <script>
+    /* set theme + js flag before first paint */
+    (function () {
+      var r = document.documentElement, t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) t = 'dark';
+      r.dataset.theme = t; r.classList.add('js');
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/lab.css" />
 </head>
 <body>
 <div class="grain"></div>
@@ -26,10 +36,12 @@
 <header class="site-header" id="siteHeader">
   <nav class="wrap">
     <a href="index.html" class="logo">chandima<span class="logo-dot">.</span></a>
-    <ul class="nav-links">
+        <ul class="nav-links">
       <li><a href="index.html#home">home</a></li>
       <li><a href="index.html#about">about</a></li>
       <li><a href="index.html#skills">skills</a></li>
+      <li><a href="index.html#lab">lab</a></li>
+      <li><a href="index.html#events">events</a></li>
       <li><a href="index.html#projects" class="active">projects</a></li>
       <li><a href="index.html#contact">contact</a></li>
     </ul>
@@ -49,6 +61,8 @@
   <a href="index.html#home">home</a>
   <a href="index.html#about">about</a>
   <a href="index.html#skills">skills</a>
+  <a href="index.html#lab">lab</a>
+  <a href="index.html#events">events</a>
   <a href="index.html#projects">projects</a>
   <a href="index.html#contact">contact</a>
 </div>
@@ -56,10 +70,10 @@
 <a class="back-home" href="index.html#projects">← Back to Projects</a>
 
 <main>
-  <section class="project-page section reveal-scale">
+  <section class="project-page section">
 
     <!-- Award Banner -->
-    <div style="background:linear-gradient(135deg,rgba(92,136,242,0.12),rgba(92,136,242,0.04)); border:1px solid rgba(92,136,242,0.25); border-radius:8px; padding:20px 28px; margin-bottom:48px; display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
+    <div style="background:color-mix(in srgb, var(--accent) 10%, var(--card)); border:1px solid color-mix(in srgb, var(--accent) 28%, transparent); border-radius:12px; padding:20px 28px; margin-bottom:48px; display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
       <div style="font-size:2.4rem; line-height:1;">🥉</div>
       <div>
         <div style="font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:4px;">Competition Achievement</div>
@@ -285,17 +299,17 @@
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
 
-  const isLight = () => document.documentElement.getAttribute('data-theme') === 'light';
+  const isLight = () => (document.documentElement.dataset.theme || document.documentElement.getAttribute('data-theme')) === 'light';
 
-  const darkVars = {
-    background: '#131316', primaryColor: '#1e1e24', primaryBorderColor: '#3a3a48',
-    primaryTextColor: '#f2f1ec', lineColor: '#5c88f2', edgeLabelBackground: '#1e1e24',
-    secondaryColor: '#1a1a22', tertiaryColor: '#0f0f11'
+    const darkVars = {
+    background: '#10141a', primaryColor: '#141820', primaryBorderColor: 'rgba(232,234,238,0.20)',
+    primaryTextColor: '#e8eaee', lineColor: '#6ee7c8', edgeLabelBackground: '#10141a',
+    secondaryColor: '#10141a', tertiaryColor: '#0b0d10'
   };
-  const lightVars = {
-    background: '#ffffff', primaryColor: '#eef2ff', primaryBorderColor: '#8ba4ed',
-    primaryTextColor: '#111110', lineColor: '#3a68d8', edgeLabelBackground: '#eef2ff',
-    secondaryColor: '#f3f4f6', tertiaryColor: '#e8edf9'
+    const lightVars = {
+    background: '#fbfaf6', primaryColor: '#f6f4ee', primaryBorderColor: 'rgba(22,24,29,0.24)',
+    primaryTextColor: '#16181d', lineColor: '#0b7a6b', edgeLabelBackground: '#fbfaf6',
+    secondaryColor: '#f6f4ee', tertiaryColor: '#ffffff'
   };
 
   // Save original source before Mermaid replaces it with an SVG
